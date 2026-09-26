@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://tdbases.com.br/sitemap.xml
