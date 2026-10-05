@@ -1,5 +1,6 @@
 import os, json
-OUT = "/home/claude/site/dist"
+#OUT = "/home/claude/site/dist"
+OUT = "/Users/thalesdiasbraga/Documents/TDBASES/SITE TDBASES/files/tdbases-site/"
 os.makedirs(OUT, exist_ok=True)
 BASE = "https://tdbases.com.br"
 WA = "5561991358553"
@@ -623,19 +624,19 @@ sobre = '''
 <section class="page-hero"><div class="wrap">
 <span class="crumb"><a href="index.html">Início</a> / Sobre</span>
 <h1>Arquitetura de dados de instituição, aplicada ao seu negócio</h1>
-<p class="lede">A TDBASES é a consultoria de engenharia e arquitetura de dados de Thales Dias Braga. A proposta é simples: levar para a pequena e média empresa o mesmo rigor usado em instituições que não podem errar.</p>
+<p class="lede">A TDBASES é a consultoria de engenharia e arquitetura de dados de Thales Dias. A proposta é simples: levar para a pequena e média empresa o mesmo rigor usado em instituições que não podem errar.</p>
 </div></section>
 
 <section><div class="wrap split">
 <div>
 <h2>Quem está por trás</h2>
-<p>Thales Dias Braga trabalha com dados há 20 anos, como DBA, analista e arquiteto de dados. A maior parte dessa trajetória foi construída no setor público de alta exigência, onde um número errado não é um incômodo, é um problema institucional.</p>
-<p>Foram 13 anos construindo a solução de Business Intelligence da Polícia Federal em cooperação com a INTERPOL, projetos em sete países da América Latina e atuação em pesquisas oficiais de estatística pública. Nesse caminho ficou clara uma lacuna: as empresas menores têm os mesmos problemas de dados das grandes, mas quase nunca têm acesso ao mesmo nível de engenharia.</p>
+<p>Thales Dias trabalha com dados há 15 anos, como DBA, analista e arquiteto de dados. A maior parte dessa trajetória foi construída no setor público de alta exigência, onde um número errado não é um incômodo, é um problema institucional.</p>
+<p>Foram 13 anos de atuação, culminando na construção da solução de Business Intelligence do Instituto Nacional de Identificação-PF, em cooperação, com times internacionais. Projetos implementados em sete países da América Latina e atuação em pesquisas oficiais de estatística pública. Nesse caminho ficou clara uma lacuna: as empresas menores têm os mesmos problemas de dados das grandes, mas quase nunca têm acesso ao mesmo nível de engenharia.</p>
 <p>A TDBASES existe para fechar essa lacuna, com escopo fechado, linguagem clara e entregas que o dono do negócio consegue usar.</p>
 </div>
 <div>
 <div class="callout"><p>Os mesmos princípios que sustentam um sistema de BI policial sustentam o painel de um escritório: origem rastreável, regra documentada e dado que alguém mantém.</p></div>
-<p class="fine">THALES DIAS BRAGA CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA, CNPJ 66.785.647/0001-84.</p>
+<p class="fine">TDBASES CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA, CNPJ 66.785.647/0001-84.</p>
 </div>
 </div></section>
 
@@ -645,7 +646,7 @@ sobre = '''
 <li><span class="when">2012 a 2025</span><div><h3>IAFIS Group Biometric and Forensics, Brasília</h3><p>Analista sênior de dados, DBA e arquiteto de dados na construção da solução de Business Intelligence da Polícia Federal brasileira, em cooperação com a INTERPOL. No mesmo período, projetos internacionais de dados no Brasil, Peru, Argentina, Panamá, Jamaica, Chile e Honduras.</p></div></li>
 <li><span class="when">2025</span><div><h3>Publicação científica</h3><p>Artigo publicado pela Sociedade Brasileira de Computação (SBC), em julho de 2025.</p></div></li>
 <li><span class="when">2025 a 2026</span><div><h3>IPEDF Codeplan</h3><p>Analista de dados no Instituto de Planejamento, Pesquisa e Estatística do Distrito Federal, no projeto InfoDF 2.0, apoiando pesquisas oficiais de larga escala, como a PDAD e a PED.</p></div></li>
-<li><span class="when">Dezembro de 2026</span><div><h3>Mestrado na UnB</h3><p>Conclusão prevista do mestrado em Computação Aplicada, área de Ciência de Dados, pela Universidade de Brasília.</p></div></li>
+<li><span class="when">2026</span><div><h3>Especialista em Arquitetura de Dados</h3><p>Conclusão prevista do mestrado em Computação Aplicada, área de Ciência de Dados, pela Universidade de Brasília.</p></div></li>
 </ol>
 </div></section>
 
