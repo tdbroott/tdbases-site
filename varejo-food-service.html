@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+.demo-thumb{display:block;width:100%;height:auto;border-radius:3px;border:1px solid var(--line);margin-bottom:14px}
 :root{--n9:#0C1B2E;--n8:#12263F;--n7:#1B3556;--n6:#2A4A70;--n1:#E4E9F0;--paper:#F4F6F9;--white:#FFFFFF;--ink:#1B2430;--muted:#556170;--line:#D3DAE3;--gold:#C2A064;--gold-d:#7A5C2C;--gold-l:#D9BF8C;--serif:"Spectral",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--wrap:1160px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:88px}
@@ -239,6 +240,9 @@ form.lead{display:grid;gap:18px}
 .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:.84rem;line-height:1.55}
 .legal p{max-width:none;margin-bottom:.5em}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+.nav a{white-space:nowrap}
+@media (min-width:981px) and (max-width:1200px){.nav{gap:16px}.nav a{font-size:.88rem}.nav .btn{padding:10px 12px}.brand-name{font-size:1.25rem}}
 </style>
 
 </head>
@@ -247,7 +251,7 @@ form.lead{display:grid;gap:18px}
 <header class="site-head"><div class="wrap">
 <a class="brand" href="index.html" aria-label="TDBASES, página inicial"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html" aria-current="page">Varejo e food service</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
+<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html" aria-current="page">Varejo e food service</a><a href="demos.html">Demonstrações</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
 </div></header>
 <main id="conteudo">
 
@@ -295,6 +299,18 @@ form.lead{display:grid;gap:18px}
 </tbody></table></div>
 </div></section>
 
+<section class="bg-paper" id="demonstracao" aria-labelledby="demo-titulo"><div class="wrap split">
+<div>
+<h2 id="demo-titulo">Veja o painel funcionando antes de contratar</h2>
+<p>Montamos um restaurante fictício com salão, balcão e dois aplicativos de delivery, 35 itens no cardápio e 24 meses de histórico, para mostrar quanto cada prato e cada canal realmente deixam depois de CMV, comissão, taxas, embalagem e promoções.</p>
+<p>Os dados são sintéticos e gerados por programa. A lógica, os indicadores e a forma de ler cada tela são os mesmos de um projeto real.</p>
+<div class="actions"><a class="btn btn-gold" href="demo-varejo.html">Abrir o painel demonstrativo</a><a class="btn btn-navy" href="demos.html">Todas as demonstrações</a></div>
+</div>
+<div>
+<img class="demo-thumb" src="img/demos/varejo.webp" width="720" height="461" loading="lazy" alt="Tela de visão geral do painel demonstrativo de varejo e food service, com indicadores de um restaurante fictício.">
+<ul class="systems"><li>Margem por canal</li><li>CMV por prato</li><li>Ticket médio por horário</li><li>Curva ABC</li><li>Divergência de estoque</li></ul>
+</div>
+</div></section>
 <section><div class="wrap"><div class="head-block"><h2>Perguntas frequentes</h2></div><div class="faq" style="max-width:820px"><details><summary>Serve para quem tem só uma loja?</summary><p>Sim. O Raio-X mostra se o volume de dados e de decisões justifica a implementação no seu caso.</p></details><details><summary>Preciso trocar de PDV?</summary><p>Não. O trabalho parte dos sistemas que você já usa. O Raio-X confirma a melhor forma de extração de cada um.</p></details><details><summary>Não tenho ficha técnica. E agora?</summary><p>Dá para começar pelos itens de maior venda. A montagem das fichas faltantes entra no plano de implementação.</p></details><details><summary>O painel funciona no celular?</summary><p>Sim. O painel é pensado para ser consultado no dia a dia da operação, inclusive pelo celular.</p></details></div></div></section>
 <section class="cta-band"><div class="wrap">
 <div><h2>Descubra quanto cada canal realmente deixa no seu caixa</h2><p class="lede" style="color:#B7C3D1;margin:0">Comece pelo Raio-X de Dados: de 3 a 5 dias úteis, relatório priorizado e orçamento fechado.</p></div>
@@ -305,7 +321,7 @@ form.lead{display:grid;gap:18px}
 <div class="foot-grid">
 <div><a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <p style="margin-top:16px">Engenharia e arquitetura de dados para pequenas e médias empresas, com o rigor de quem construiu dados para instituições que não podem errar.</p></div>
-<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li></ul></div>
+<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li><li><a href="demos.html">Demonstrações</a></li></ul></div>
 <div><h4>Contato</h4><ul><li><a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a></li><li><a href="https://wa.me/5561991358553" rel="noopener">WhatsApp +55 61 99135-8553</a></li><li><a href="sobre.html">Sobre a TDBASES</a></li></ul></div>
 </div>
 <div class="legal">

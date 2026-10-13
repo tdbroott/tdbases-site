@@ -18,6 +18,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Spectral:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+.demo-thumb{display:block;width:100%;height:auto;border-radius:3px;border:1px solid rgba(255,255,255,.15);margin-bottom:14px}
 :root{--n9:#0C1B2E;--n8:#12263F;--n7:#1B3556;--n6:#2A4A70;--n1:#E4E9F0;--paper:#F4F6F9;--white:#FFFFFF;--ink:#1B2430;--muted:#556170;--line:#D3DAE3;--gold:#C2A064;--gold-d:#7A5C2C;--gold-l:#D9BF8C;--serif:"Spectral",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--wrap:1160px}
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:88px}
@@ -239,6 +240,9 @@ form.lead{display:grid;gap:18px}
 .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:.84rem;line-height:1.55}
 .legal p{max-width:none;margin-bottom:.5em}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+.nav a{white-space:nowrap}
+@media (min-width:981px) and (max-width:1200px){.nav{gap:16px}.nav a{font-size:.88rem}.nav .btn{padding:10px 12px}.brand-name{font-size:1.25rem}}
 </style>
 
 </head>
@@ -247,7 +251,7 @@ form.lead{display:grid;gap:18px}
 <header class="site-head"><div class="wrap">
 <a class="brand" href="index.html" aria-label="TDBASES, página inicial"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html" aria-current="page">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Varejo e food service</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
+<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html" aria-current="page">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Varejo e food service</a><a href="demos.html">Demonstrações</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
 </div></header>
 <main id="conteudo">
 
@@ -298,13 +302,17 @@ form.lead{display:grid;gap:18px}
 </tbody></table></div>
 </div></section>
 
-<section class="secao" id="demonstracao" aria-labelledby="demo-titulo">
-  <div class="wrap">
-    <h2 id="demo-titulo">Veja o painel funcionando</h2>
-    <p>Navegue por um escritório fictício, com dados gerados por programa: prazos, produtividade, taxa de êxito, rentabilidade por cliente e mapeamento LGPD. É o tipo de painel que entregamos ao final da implementação.</p>
-    <a class="btn btn-primario" href="demo-advocacia.html">Abrir o painel demonstrativo</a>
-  </div>
-</section>
+<section class="bg-navy" id="demonstracao" aria-labelledby="demo-titulo"><div class="wrap split">
+<div>
+<h2 id="demo-titulo">Veja o painel funcionando</h2>
+<p>Navegue por um escritório fictício, com dados gerados por programa: prazos, produtividade, taxa de êxito, rentabilidade por cliente e mapeamento LGPD. É o tipo de painel que entregamos ao final da implementação.</p>
+<div class="actions"><a class="btn btn-gold" href="demo-advocacia.html" style="color:#0C1B2E">Abrir o painel demonstrativo</a><a class="btn btn-line" href="demo-raio-x.html" style="color:#FFFFFF">Ver exemplo do Raio-X</a></div>
+</div>
+<div>
+<img class="demo-thumb" src="img/demos/advocacia.webp" width="720" height="461" loading="lazy" alt="Tela de visão geral do painel demonstrativo de advocacia, com indicadores e achados de um escritório fictício.">
+<p class="fine">Antes do painel vem o Raio-X: o exemplo de relatório mostra, para o mesmo escritório fictício, o diagnóstico que define o escopo. <a href="demos.html">Todas as demonstrações</a>.</p>
+</div>
+</div></section>
 
 
 <section class="bg-paper"><div class="wrap split">
@@ -335,7 +343,7 @@ form.lead{display:grid;gap:18px}
 <div class="foot-grid">
 <div><a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <p style="margin-top:16px">Engenharia e arquitetura de dados para pequenas e médias empresas, com o rigor de quem construiu dados para instituições que não podem errar.</p></div>
-<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li></ul></div>
+<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li><li><a href="demos.html">Demonstrações</a></li></ul></div>
 <div><h4>Contato</h4><ul><li><a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a></li><li><a href="https://wa.me/5561991358553" rel="noopener">WhatsApp +55 61 99135-8553</a></li><li><a href="sobre.html">Sobre a TDBASES</a></li></ul></div>
 </div>
 <div class="legal">

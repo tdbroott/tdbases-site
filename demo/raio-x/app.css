@@ -1,0 +1,68 @@
+/* relatório do Raio-X */
+body{background:#E9EDF2}
+.doc{max-width:960px;margin:28px auto 56px;background:var(--white);border:1px solid var(--line);border-radius:4px;box-shadow:0 1px 0 rgba(12,27,46,.04)}
+.capa{background:var(--n9);color:#C9D3DF;padding:40px 48px 36px;border-radius:4px 4px 0 0}
+.capa .brand{margin-bottom:28px}
+.capa h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin:0 0 6px}
+.capa .sub{font-family:var(--serif);font-size:1.25rem;color:#E4E9F0;margin:0 0 26px}
+.ficha{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 24px;margin:0;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
+.ficha div{min-width:0}
+.ficha dt{font-size:.8rem;color:#93A3B6;font-weight:600}
+.ficha dd{margin:2px 0 0;color:#fff;font-size:.95rem}
+@media (max-width:760px){.ficha{grid-template-columns:1fr 1fr}.capa{padding:28px 22px}}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;padding:18px 48px;border-bottom:1px solid var(--line);background:#F8F9FB;align-items:center}
+.acoes p{margin:0;flex:1 1 300px;font-size:.88rem;color:var(--muted)}
+@media (max-width:760px){.acoes{padding:16px 22px}}
+.corpo{padding:8px 48px 40px}
+@media (max-width:760px){.corpo{padding:4px 22px 28px}}
+.corpo section{padding-top:30px}
+.corpo h2{font-size:1.6rem;display:flex;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px}
+.corpo h2 .n{font-family:var(--serif);color:var(--gold-d);font-size:1.3rem;min-width:1.4em}
+.corpo h3{font-size:1.1rem;margin-top:18px}
+.corpo p,.corpo li{font-size:1rem;line-height:1.62}
+.corpo ul,.corpo ol{padding-left:1.2em;margin:0 0 1em}
+.corpo li{margin-bottom:5px;max-width:72ch}
+.corpo .resumo{font-family:var(--serif);font-size:1.2rem;line-height:1.5;color:var(--n9);border-left:3px solid var(--gold);padding:4px 0 4px 18px;margin:0 0 20px;max-width:none}
+.achs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
+@media (max-width:760px){.achs{grid-template-columns:1fr}}
+.ach{border:1px solid var(--line);border-top:3px solid var(--n7);border-radius:4px;padding:14px 16px}
+.ach.crit{border-top-color:var(--alert)}
+.ach h3{margin:0 0 6px;font-size:1.02rem}
+.ach p{margin:0;font-size:.95rem}
+.ach .sev{display:inline-block;margin-bottom:6px}
+.reco{background:var(--n9);color:#C9D3DF;border-radius:4px;padding:18px 20px}
+.reco p{margin:0;color:#E4E9F0}
+.reco strong{color:#fff}
+.mat{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+.mat figure svg{max-width:720px;display:block;margin:0 auto}
+.svgscroll{overflow-x:auto}
+.dica-rolar{display:none;font-size:.84rem;color:var(--muted);margin:0 0 6px}
+@media (max-width:640px){.dica-rolar{display:block}}
+.svgscroll svg{min-width:600px}
+.prio{font-weight:600;white-space:nowrap}
+.semana{display:grid;grid-template-columns:110px 1fr;gap:4px 18px;border-top:1px solid var(--line);padding:12px 0}
+.semana:last-child{border-bottom:1px solid var(--line)}
+.semana .w{font-family:var(--serif);color:var(--gold-d);font-size:1.05rem}
+.semana p{margin:0}
+@media (max-width:600px){.semana{grid-template-columns:1fr}}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.cols2{grid-template-columns:1fr}}
+.preco{border:1px dashed #9AA6B5;border-radius:4px;padding:14px 16px;background:#F8F9FB;margin-top:16px}
+.preco p{margin:0}
+.fim{background:var(--n9);color:#C9D3DF;border-radius:0 0 4px 4px;padding:28px 48px}
+.fim h2{color:#fff;font-size:1.5rem;border:0;margin:0 0 8px;padding:0}
+.fim p{color:#C9D3DF}
+.fim .actions{display:flex;flex-wrap:wrap;gap:12px}
+.fim .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+@media (max-width:760px){.fim{padding:24px 22px}}
+@media print{
+ body{background:#fff}
+ .band,.acoes,.fim .actions,.skip{display:none!important}
+ .doc{margin:0;border:0;box-shadow:none;max-width:none}
+ .capa,.reco,.fim{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .corpo section{break-inside:auto}
+ .table-wrap{overflow:visible;border:0}
+ thead th{position:static}
+ h2,h3{break-after:avoid}
+ tr,.ach,.semana{break-inside:avoid}
+}

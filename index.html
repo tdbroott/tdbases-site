@@ -239,6 +239,9 @@ form.lead{display:grid;gap:18px}
 .legal{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;font-size:.84rem;line-height:1.55}
 .legal p{max-width:none;margin-bottom:.5em}
 @media (max-width:760px){.foot-grid{grid-template-columns:1fr}}
+
+.nav a{white-space:nowrap}
+@media (min-width:981px) and (max-width:1200px){.nav{gap:16px}.nav a{font-size:.88rem}.nav .btn{padding:10px 12px}.brand-name{font-size:1.25rem}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ProfessionalService", "name": "TDBASES", "legalName": "TDBASES CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA", "taxID": "66.785.647/0001-84", "url": "https://tdbases.com.br", "email": "contato@tdbases.com.br", "telephone": "+55-61-99135-8553", "areaServed": "BR", "founder": {"@type": "Person", "name": "Thales Dias Braga", "jobTitle": "Arquiteto e engenheiro de dados"}, "description": "Engenharia e arquitetura de dados para pequenas e médias empresas: diagnóstico, data warehouse, painéis de indicadores e governança de dados."}</script>
 </head>
@@ -247,7 +250,7 @@ form.lead{display:grid;gap:18px}
 <header class="site-head"><div class="wrap">
 <a class="brand" href="index.html" aria-label="TDBASES, página inicial"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal"><a href="index.html" aria-current="page">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Varejo e food service</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
+<nav class="nav" id="nav" aria-label="Principal"><a href="index.html" aria-current="page">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Varejo e food service</a><a href="demos.html">Demonstrações</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html">Agendar Raio-X de Dados</a></nav>
 </div></header>
 <main id="conteudo">
 
@@ -300,10 +303,10 @@ form.lead{display:grid;gap:18px}
 <div class="ladder">
 <div><span class="step-n">1</span><h3>Raio-X de Dados</h3><span class="step-meta">Diagnóstico pago, de 3 a 5 dias úteis</span>
 <p>Mapeamos onde os dados do seu negócio nascem, por onde passam e onde se perdem. Você recebe um relatório com os problemas em ordem de prioridade e um orçamento fechado para resolver.</p>
-<p class="why">Investimento baixo para decidir com informação, e não com uma proposta genérica.</p></div>
+<p class="why">Investimento baixo para decidir com informação, e não com uma proposta genérica. <a href="demo-raio-x.html">Veja um exemplo de relatório</a>.</p></div>
 <div><span class="step-n">2</span><h3>Implementação</h3><span class="step-meta">Escopo fechado, de 2 a 6 semanas</span>
 <p>Construímos a infraestrutura de dados e um painel de indicadores feito para o seu tipo de negócio, com os números que você realmente precisa acompanhar.</p>
-<p class="why">Entrega tangível: base integrada, painel funcionando e documentação.</p></div>
+<p class="why">Entrega tangível: base integrada, painel funcionando e documentação. <a href="demos.html">Veja os painéis demonstrativos</a>.</p></div>
 <div><span class="step-n">3</span><h3>Sustentação e governança</h3><span class="step-meta">Contrato mensal</span>
 <p>Mantemos as cargas rodando, os dados atualizados e o painel evoluindo conforme o negócio muda. Sistema troca de versão, cadastro muda, surge pergunta nova.</p>
 <p class="why">Dado sem manutenção se deteriora rápido. A recorrência existe por isso.</p></div>
@@ -326,6 +329,7 @@ form.lead{display:grid;gap:18px}
 <div class="seg-side"><h3>Contabilidade</h3><p>Uma ponte entre o ERP contábil e um painel gerencial de fluxo de caixa e DRE, além de conciliação automatizada entre extrato, notas fiscais e lançamentos.</p><a class="more" href="contabilidade.html">Ver a solução para contabilidade</a></div>
 <div class="seg-side"><h3>Varejo, bares e restaurantes</h3><p>PDV, iFood, Rappi e estoque num só lugar, com CMV e margem reais por produto ou prato e ticket médio por canal de venda.</p><a class="more" href="varejo-food-service.html">Ver a solução para varejo e food service</a></div>
 </div>
+<p style="margin-top:28px"><a class="btn btn-navy" href="demos.html">Ver os painéis demonstrativos</a></p>
 </div></section>
 <section class="cta-band"><div class="wrap">
 <div><h2>Comece pelo Raio-X de Dados</h2><p class="lede" style="color:#B7C3D1;margin:0">Em 3 a 5 dias úteis você sabe onde estão os problemas dos seus dados, o que resolver primeiro e quanto custa.</p></div>
@@ -336,7 +340,7 @@ form.lead{display:grid;gap:18px}
 <div class="foot-grid">
 <div><a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <p style="margin-top:16px">Engenharia e arquitetura de dados para pequenas e médias empresas, com o rigor de quem construiu dados para instituições que não podem errar.</p></div>
-<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li></ul></div>
+<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li><li><a href="demos.html">Demonstrações</a></li></ul></div>
 <div><h4>Contato</h4><ul><li><a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a></li><li><a href="https://wa.me/5561991358553" rel="noopener">WhatsApp +55 61 99135-8553</a></li><li><a href="sobre.html">Sobre a TDBASES</a></li></ul></div>
 </div>
 <div class="legal">

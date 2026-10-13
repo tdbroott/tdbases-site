@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel demonstrativo para restaurantes e varejo | TDBASES</title>
+<meta name="description" content="Demonstração interativa, com dados fictícios, do painel da TDBASES para bares, restaurantes e varejo: CMV real por prato, margem por canal de venda, ticket médio, curva ABC e divergência de estoque.">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="TDBASES">
+<meta property="og:title" content="Painel demonstrativo para restaurantes e varejo | TDBASES">
+<meta property="og:description" content="Veja, com um restaurante fictício, quanto cada prato e cada canal de venda realmente deixam no caixa depois de CMV, comissão, taxas e embalagem.">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta name="theme-color" content="#0C1B2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230C1B2E'/%3E%3Cellipse cx='16' cy='9' rx='9' ry='3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3Cpath d='M7 9v13c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3V9M7 15.5c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+{{CORE_CSS}}
+</style>
+</head>
+<body>
+<a class="skip" href="#painel">Pular para o painel</a>
+<div class="band" role="note"><div class="wrap"><span><span class="b-long">Demonstração com dados fictícios. O restaurante, o cardápio e todos os números deste painel foram gerados para exemplo.</span><span class="b-short">Demonstração com dados fictícios.</span></span><span class="links"><a href="https://www.tdbases.com.br/demos.html">Outras demonstrações</a><a href="https://www.tdbases.com.br/varejo-food-service.html">Solução para varejo e food service</a></span></div></div>
+
+<header class="top"><div class="wrap">
+ <div class="office">
+  <a class="brand" href="https://www.tdbases.com.br/" aria-label="TDBASES, ir para o site"><svg width="22" height="22" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg>TDBASES</a>
+  <h1>Bistrô Jatobá<span class="tag">restaurante fictício</span></h1>
+  <p id="sub-ref">Painel de vendas, margem e estoque. Dados fictícios.</p>
+ </div>
+ <a class="btn btn-gold" href="https://www.tdbases.com.br/contato.html?segmento=varejo">Agendar Raio-X de Dados</a>
+</div></header>
+
+<section class="filters" aria-label="Filtros globais"><div class="wrap">
+ <div class="field"><label for="f-per">Período</label><select id="f-per"></select></div>
+ <div class="field"><label for="f-canal">Canal de venda</label><select id="f-canal"></select></div>
+ <div class="field"><label for="f-cat">Categoria do cardápio</label><select id="f-cat"></select></div>
+ <button class="btn btn-line btn-sm" type="button" id="f-limpar">Limpar filtros</button>
+ <p class="scope" id="scope" aria-live="polite"></p>
+</div></section>
+
+<nav class="tabs" aria-label="Telas do painel"><div class="wrap"><div class="tablist" role="tablist">
+ <button role="tab" id="t-geral" aria-controls="p-geral" aria-selected="true">Visão geral</button>
+ <button role="tab" id="t-canal" aria-controls="p-canal" aria-selected="false" tabindex="-1">Margem por canal</button>
+ <button role="tab" id="t-cmv" aria-controls="p-cmv" aria-selected="false" tabindex="-1">CMV por prato</button>
+ <button role="tab" id="t-ticket" aria-controls="p-ticket" aria-selected="false" tabindex="-1">Ticket médio</button>
+ <button role="tab" id="t-abc" aria-controls="p-abc" aria-selected="false" tabindex="-1">Curva ABC</button>
+ <button role="tab" id="t-estoque" aria-controls="p-estoque" aria-selected="false" tabindex="-1">Estoque</button>
+ <button role="tab" id="t-como" aria-controls="p-como" aria-selected="false" tabindex="-1">Como foi construído</button>
+</div></div></nav>
+
+<main id="painel"><div class="wrap">
+
+<section class="panel" role="tabpanel" id="p-geral" aria-labelledby="t-geral" tabindex="0">
+ <div class="panel-head"><h2>Visão geral</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> o que ajustar primeiro no cardápio, nos preços por canal e no controle de estoque.</p></div>
+ <div class="grid kpis" id="kpis"></div>
+ <div class="grid achados" id="achados"></div>
+ <div class="card sec"><h3>CMV e margem de contribuição por mês</h3>
+  <ul class="legend" id="lg-geral"></ul>
+  <figure><div class="chart" id="ch-geral"></div><figcaption id="cap-geral"></figcaption></figure>
+ </div>
+ <p class="nota sec">Faturamento: vendas pelo preço de cada canal, já descontadas as promoções pagas pelo restaurante. CMV: custo dos insumos pela ficha técnica e pelo preço de compra de cada mês. Margem de contribuição: faturamento menos CMV, comissão dos aplicativos, taxa de pagamento e embalagem. Custos fixos, como aluguel e folha, não entram nesta conta.</p>
+</section>
+
+<section class="panel" role="tabpanel" id="p-canal" aria-labelledby="t-canal" tabindex="0" hidden>
+ <div class="panel-head"><h2>Margem por canal de venda</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> quais pratos manter, reprecificar ou tirar de cada aplicativo, e se a promoção vale o que custa.</p></div>
+ <div class="tbl-tools"><h3>Do faturamento à margem, por canal</h3><button class="btn btn-line btn-sm" data-csv="canais">Exportar CSV</button></div>
+ <div class="table-wrap" id="tb-canais"></div>
+ <p class="nota" style="margin-top:8px">Bruto: vendas pelo preço de cardápio de cada canal. Faturamento: bruto menos promoções pagas pelo restaurante. Margem: margem de contribuição, depois de CMV, comissão, taxa de pagamento e embalagem.</p>
+ <div class="card sec"><h3 id="h-cascata">Para onde vai cada real vendido</h3>
+  <ul class="legend" id="lg-cascata"></ul>
+  <figure><div class="chart" id="ch-cascata"></div><figcaption id="cap-cascata"></figcaption></figure>
+ </div>
+ <div class="sec"><div class="tbl-tools"><h3>Itens com margem de contribuição baixa em algum canal</h3><button class="btn btn-line btn-sm" data-csv="baixa">Exportar CSV</button></div><div class="table-wrap" id="tb-baixa"></div>
+ <p class="nota" style="margin-top:8px">Lista os pares de item e canal com margem de contribuição abaixo de 10% no período. Margem por unidade calculada com o preço, a promoção e o custo médios do período.</p></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-cmv" aria-labelledby="t-cmv" tabindex="0" hidden>
+ <div class="panel-head"><h2>CMV real por prato</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> quais pratos estão com preço defasado em relação ao custo dos insumos.</p>
+ <p class="nota" id="nota-cmv"></p></div>
+ <div class="grid two">
+  <div class="card"><h3>Insumos que mais subiram no período</h3><figure><div class="chart" id="ch-ins"></div><figcaption id="cap-ins"></figcaption></figure></div>
+  <div class="card"><h3>CMV por categoria</h3><figure><div class="chart" id="ch-cat"></div><figcaption id="cap-cat"></figcaption></figure></div>
+ </div>
+ <div class="sec"><div class="tbl-tools"><h3>Cardápio</h3><button class="btn btn-line btn-sm" data-csv="cmv">Exportar CSV</button></div><div class="table-wrap" id="tb-cmv"></div>
+ <p class="nota" style="margin-top:8px">Preço e custo atuais: último mês do período. CMV do período: custo total dividido pelo faturamento do item no período, considerando o filtro de canal.</p></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-ticket" aria-labelledby="t-ticket" tabindex="0" hidden>
+ <div class="panel-head"><h2>Ticket médio por canal e horário</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> em que dia e horário vale reforçar equipe, cardápio ou campanha em cada canal.</p>
+ <p class="nota">O ticket médio é por pedido, então o filtro de categoria não se aplica a esta tela; período e canal se aplicam.</p></div>
+ <div class="card"><h3>Ticket médio por canal</h3><figure><div class="chart" id="ch-ticket"></div><figcaption id="cap-ticket"></figcaption></figure></div>
+ <div class="sec"><div class="tbl-tools"><h3>Ticket médio por dia da semana e faixa horária</h3><button class="btn btn-line btn-sm" data-csv="heat">Exportar CSV</button></div><div class="table-wrap" id="tb-heat"></div>
+ <p class="nota" style="margin-top:8px">Em cada célula: ticket médio e número de pedidos no período. O fundo mais escuro indica mais pedidos; o número continua sendo a leitura principal.</p></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-abc" aria-labelledby="t-abc" tabindex="0" hidden>
+ <div class="panel-head"><h2>Curva ABC do cardápio</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> quais itens sustentam o faturamento e quais só ocupam cardápio, estoque e tempo de cozinha.</p></div>
+ <div class="card"><h3>Faturamento acumulado por item</h3><figure><div class="chart" id="ch-abc"></div><figcaption id="cap-abc"></figcaption></figure></div>
+ <div class="sec"><div class="tbl-tools"><h3>Classificação dos itens</h3><button class="btn btn-line btn-sm" data-csv="abc">Exportar CSV</button></div><div class="table-wrap" id="tb-abc"></div>
+ <p class="nota" style="margin-top:8px">Classe A: itens que somam até 80% do faturamento. Classe B: de 80% a 95%. Classe C: o restante.</p></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-estoque" aria-labelledby="t-estoque" tabindex="0" hidden>
+ <div class="panel-head"><h2>Divergência de estoque</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> onde investigar perda, desperdício, porção fora da ficha ou erro de lançamento.</p>
+ <p class="nota">Consumo teórico: vendas do período multiplicadas pela ficha técnica. Consumo real: estoque inicial mais compras menos contagem final. A diferença mede o que saiu sem venda correspondente. A contagem é do estoque inteiro, então os filtros de canal e categoria não se aplicam a esta tela.</p></div>
+ <div class="grid kpis k4" id="kpis-est"></div>
+ <div class="card sec"><h3>Maiores divergências em valor</h3><figure><div class="chart" id="ch-est"></div><figcaption id="cap-est"></figcaption></figure></div>
+ <div class="sec"><div class="tbl-tools"><h3>Insumos</h3><button class="btn btn-line btn-sm" data-csv="estoque">Exportar CSV</button></div><div class="table-wrap" id="tb-est"></div></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-como" aria-labelledby="t-como" tabindex="0" hidden>
+ <div class="panel-head"><h2>Como foi construído</h2>
+ <p class="decisao"><strong>O que esta tela mostra:</strong> o caminho de cada número, do caixa, dos aplicativos e das notas de compra até o painel.</p></div>
+ <div class="card"><figure><div class="chart" id="ch-arq"></div><figcaption>Fluxo de referência: as fontes são extraídas para o PostgreSQL, transformadas em camadas documentadas com dbt e publicadas como modelo dimensional para o painel.</figcaption></figure></div>
+ <div class="grid deliv sec">
+  <div class="card"><h3>Base única de vendas</h3><ul><li>PDV e relatórios dos aplicativos de delivery na mesma estrutura</li><li>Cadastro de produtos padronizado entre canais</li><li>Comissões, taxas e promoções apuradas por pedido</li></ul></div>
+  <div class="card"><h3>Custo pela ficha técnica</h3><ul><li>Fichas técnicas revisadas para os itens de maior venda</li><li>Preço de insumo atualizado pelas notas de compra</li><li>CMV por item, categoria e canal</li></ul></div>
+  <div class="card"><h3>Painel e documentação</h3><ul><li>Telas como as desta demonstração, ajustadas à operação</li><li>Regra escrita para cada indicador</li><li>Treinamento rápido para o dono e o gerente</li></ul></div>
+ </div>
+ <p class="nota sec">Material técnico desta demonstração: <a href="demo/varejo/modelo_dados.md">modelo de dados e esboço dos modelos dbt</a> e <a href="demo/varejo/gerar_dados.py">gerador dos dados sintéticos</a>.</p>
+ <div class="callout">
+  <h2>Quer ver isso com os números da sua operação?</h2>
+  <p>O primeiro passo é o Raio-X de Dados: de 3 a 5 dias úteis, um diagnóstico do seu PDV, dos aplicativos, das fichas técnicas e do estoque, com relatório priorizado e orçamento fechado para a implementação.</p>
+  <div class="actions"><a class="btn btn-gold" href="https://www.tdbases.com.br/contato.html?segmento=varejo">Agendar Raio-X de Dados</a><a class="btn btn-line" href="https://www.tdbases.com.br/demos.html">Ver outras demonstrações</a></div>
+ </div>
+</section>
+
+</div></main>
+
+<footer class="foot"><div class="wrap">
+ <p>Demonstração com dados fictícios. O Bistrô Jatobá não existe; cardápio, fichas técnicas, preços, vendas e estoque foram gerados por programa. Os aplicativos de delivery aparecem sem marca de propósito; comissões e taxas são valores de exemplo.</p>
+ <p><a href="https://www.tdbases.com.br/">TDBASES</a>, engenharia e arquitetura de dados. CNPJ 66.785.647/0001-84.</p>
+</div></footer>
+
+<script id="dados-demo" type="application/json">{{DADOS}}</script>
+<script>
+{{CORE_JS}}
+</script>
+<script>
+{{APP_JS}}
+</script>
+</body>
+</html>

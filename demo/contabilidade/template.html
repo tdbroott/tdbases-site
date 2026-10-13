@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Painel demonstrativo para escritórios de contabilidade | TDBASES</title>
+<meta name="description" content="Demonstração interativa, com dados fictícios, do painel gerencial da TDBASES para escritórios contábeis: fluxo de caixa, DRE gerencial, caixa e competência, conciliação automatizada e visão da carteira.">
+<link rel="canonical" href="{{CANONICAL}}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="TDBASES">
+<meta property="og:title" content="Painel demonstrativo para escritórios de contabilidade | TDBASES">
+<meta property="og:description" content="Veja, com um escritório contábil fictício e 40 empresas clientes, o painel gerencial e a conciliação automatizada que a TDBASES entrega.">
+<meta property="og:url" content="{{CANONICAL}}">
+<meta name="theme-color" content="#0C1B2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230C1B2E'/%3E%3Cellipse cx='16' cy='9' rx='9' ry='3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3Cpath d='M7 9v13c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3V9M7 15.5c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+{{CORE_CSS}}
+</style>
+</head>
+<body>
+<a class="skip" href="#painel">Pular para o painel</a>
+<div class="band" role="note"><div class="wrap"><span><span class="b-long">Demonstração com dados fictícios. O escritório, as empresas e todos os números deste painel foram gerados para exemplo.</span><span class="b-short">Demonstração com dados fictícios.</span></span><span class="links"><a href="https://www.tdbases.com.br/demos.html">Outras demonstrações</a><a href="https://www.tdbases.com.br/contabilidade.html">Solução para contabilidade</a></span></div></div>
+
+<header class="top"><div class="wrap">
+ <div class="office">
+  <a class="brand" href="https://www.tdbases.com.br/" aria-label="TDBASES, ir para o site"><svg width="22" height="22" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg>TDBASES</a>
+  <h1>Pereira Lins Contabilidade<span class="tag">escritório fictício</span></h1>
+  <p id="sub-ref">Painel gerencial da carteira de empresas clientes. Dados fictícios.</p>
+ </div>
+ <a class="btn btn-gold" href="https://www.tdbases.com.br/contato.html?segmento=contabilidade">Agendar Raio-X de Dados</a>
+</div></header>
+
+<section class="filters" aria-label="Filtros globais"><div class="wrap">
+ <div class="field"><label for="f-per">Período</label><select id="f-per"></select></div>
+ <div class="field"><label for="f-seg">Segmento</label><select id="f-seg"></select></div>
+ <div class="field"><label for="f-emp">Empresa cliente</label><select id="f-emp"></select></div>
+ <button class="btn btn-line btn-sm" type="button" id="f-limpar">Limpar filtros</button>
+ <p class="scope" id="scope" aria-live="polite"></p>
+</div></section>
+
+<nav class="tabs" aria-label="Telas do painel"><div class="wrap"><div class="tablist" role="tablist">
+ <button role="tab" id="t-geral" aria-controls="p-geral" aria-selected="true">Visão geral</button>
+ <button role="tab" id="t-fluxo" aria-controls="p-fluxo" aria-selected="false" tabindex="-1">Fluxo de caixa</button>
+ <button role="tab" id="t-dre" aria-controls="p-dre" aria-selected="false" tabindex="-1">DRE e caixa</button>
+ <button role="tab" id="t-concil" aria-controls="p-concil" aria-selected="false" tabindex="-1">Conciliação</button>
+ <button role="tab" id="t-carteira" aria-controls="p-carteira" aria-selected="false" tabindex="-1">Carteira do escritório</button>
+ <button role="tab" id="t-como" aria-controls="p-como" aria-selected="false" tabindex="-1">Como foi construído</button>
+</div></div></nav>
+
+<main id="painel"><div class="wrap">
+
+<section class="panel" role="tabpanel" id="p-geral" aria-labelledby="t-geral" tabindex="0">
+ <div class="panel-head"><h2>Visão geral</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> quais empresas clientes pedem conversa com o contador neste mês, por margem, caixa ou enquadramento.</p></div>
+ <div class="grid kpis" id="kpis"></div>
+ <div class="grid achados" id="achados"></div>
+ <div class="card sec"><h3>Resultado por competência e caixa das operações, por mês</h3>
+  <ul class="legend" id="lg-geral"></ul>
+  <figure><div class="chart" id="ch-geral"></div><figcaption id="cap-geral"></figcaption></figure>
+ </div>
+ <p class="nota sec">Resultado por competência: receitas e despesas no mês em que acontecem. Caixa das operações: dinheiro que efetivamente entrou e saiu nas operações, sem investimentos e empréstimos. A diferença entre os dois é explicada na tela DRE e caixa.</p>
+</section>
+
+<section class="panel" role="tabpanel" id="p-fluxo" aria-labelledby="t-fluxo" tabindex="0" hidden>
+ <div class="panel-head"><h2>Fluxo de caixa realizado</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> se o caixa aguenta os próximos meses e de onde vem a pressão, de clientes, fornecedores, folha ou impostos.</p>
+ <p class="nota" id="nota-fluxo"></p></div>
+ <div class="card"><h3>Entradas, saídas e saldo no fim do mês</h3>
+  <ul class="legend" id="lg-fluxo"></ul>
+  <figure><div class="chart" id="ch-fluxo"></div><figcaption id="cap-fluxo"></figcaption></figure>
+ </div>
+ <div class="sec"><div class="tbl-tools"><h3>Fluxo de caixa por mês</h3><button class="btn btn-line btn-sm" data-csv="fluxo">Exportar CSV</button></div><div class="table-wrap" id="tb-fluxo"></div></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-dre" aria-labelledby="t-dre" tabindex="0" hidden>
+ <div class="panel-head"><h2>DRE gerencial e ponte para o caixa</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> onde a margem está mudando e por que o lucro do período não apareceu, ou apareceu a mais, no caixa.</p></div>
+ <div class="tbl-tools"><h3>Demonstração do resultado (competência)</h3><button class="btn btn-line btn-sm" data-csv="dre">Exportar CSV</button></div>
+ <div class="table-wrap" id="tb-dre"></div>
+ <p class="nota" id="nota-dre" style="margin-top:8px"></p>
+ <div class="card sec"><h3>Do resultado ao caixa</h3>
+  <ul class="legend" id="lg-ponte"></ul>
+  <figure><div class="chart" id="ch-ponte"></div><figcaption id="cap-ponte"></figcaption></figure>
+ </div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-concil" aria-labelledby="t-concil" tabindex="0" hidden>
+ <div class="panel-head"><h2>Conciliação automatizada</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> onde a equipe do escritório deve gastar o tempo de conferência, e com qual cliente conversar sobre documentos faltantes.</p>
+ <p class="nota" id="nota-concil"></p></div>
+ <div class="grid kpis" id="kpis-concil"></div>
+ <div class="grid two sec">
+  <div class="card"><h3>Linhas conciliadas automaticamente, por mês</h3><figure><div class="chart" id="ch-auto"></div><figcaption id="cap-auto"></figcaption></figure></div>
+  <div class="card"><h3>Pendências abertas por motivo</h3><figure><div class="chart" id="ch-motivo"></div><figcaption id="cap-motivo"></figcaption></figure></div>
+ </div>
+ <div class="sec"><div class="tbl-tools"><h3>Fila de pendências</h3><button class="btn btn-line btn-sm" data-csv="pend">Exportar CSV</button></div><div class="table-wrap" id="tb-pend"></div><div class="more" id="more-pend"></div></div>
+</section>
+
+<section class="panel" role="tabpanel" id="p-carteira" aria-labelledby="t-carteira" tabindex="0" hidden>
+ <div class="panel-head"><h2>Carteira do escritório</h2>
+ <p class="decisao"><strong>Decisão que esta tela apoia:</strong> a pauta da semana do escritório: quem está com fechamento atrasado, margem caindo, caixa negativo ou perto de mudar de faixa no Simples.</p></div>
+ <div class="tbl-tools"><h3>Empresas clientes</h3><button class="btn btn-line btn-sm" data-csv="carteira">Exportar CSV</button></div>
+ <div class="table-wrap" id="tb-carteira"></div>
+ <p class="nota" style="margin-top:8px">Clique no título de uma coluna para ordenar. Variação da margem: diferença em pontos percentuais para o período anterior de mesma duração. RBT12: receita bruta acumulada nos 12 meses até a data de referência, usada no enquadramento do Simples Nacional. Atraso: dias além do prazo combinado para entrega dos documentos do último mês.</p>
+</section>
+
+<section class="panel" role="tabpanel" id="p-como" aria-labelledby="t-como" tabindex="0" hidden>
+ <div class="panel-head"><h2>Como foi construído</h2>
+ <p class="decisao"><strong>O que esta tela mostra:</strong> o caminho de cada número, do ERP contábil e do extrato bancário até o painel.</p></div>
+ <div class="card"><figure><div class="chart" id="ch-arq"></div><figcaption>Fluxo de referência: as fontes são extraídas para o PostgreSQL, transformadas em camadas documentadas com dbt e publicadas como modelo dimensional para o painel e para a rotina de conciliação.</figcaption></figure></div>
+ <div class="grid deliv sec">
+  <div class="card"><h3>Ponte com o ERP contábil</h3><ul><li>Extração dos lançamentos e do plano de contas do ERP</li><li>Plano de contas gerencial mapeado ao contábil, uma vez por cliente</li><li>Mesma estrutura de DRE para toda a carteira</li></ul></div>
+  <div class="card"><h3>Conciliação por regras</h3><ul><li>Extratos em OFX e XML de NF-e e NFS-e padronizados</li><li>Regras por valor e data, chave da nota e recorrência</li><li>Fila de exceções com motivo provável</li></ul></div>
+  <div class="card"><h3>Painel e documentação</h3><ul><li>Telas como as desta demonstração, com a marca do escritório</li><li>Regra escrita para cada indicador e cada regra de conciliação</li><li>Treinamento da equipe</li></ul></div>
+ </div>
+ <p class="nota sec">Material técnico desta demonstração: <a href="demo/contabilidade/modelo_dados.md">modelo de dados e esboço dos modelos dbt</a> e <a href="demo/contabilidade/gerar_dados.py">gerador dos dados sintéticos</a>.</p>
+ <div class="callout">
+  <h2>Quer ver isso com a carteira do seu escritório?</h2>
+  <p>O primeiro passo é o Raio-X de Dados: de 3 a 5 dias úteis, um diagnóstico do seu ERP, dos extratos e da rotina de fechamento, com relatório priorizado e orçamento fechado para a implementação.</p>
+  <div class="actions"><a class="btn btn-gold" href="https://www.tdbases.com.br/contato.html?segmento=contabilidade">Agendar Raio-X de Dados</a><a class="btn btn-line" href="https://www.tdbases.com.br/demos.html">Ver outras demonstrações</a></div>
+ </div>
+</section>
+
+</div></main>
+
+<footer class="foot"><div class="wrap">
+ <p>Demonstração com dados fictícios. Pereira Lins Contabilidade e as empresas clientes não existem; nomes, valores, extratos e pendências foram gerados por programa. As faixas do Simples Nacional usadas como referência são as da receita bruta acumulada em 12 meses.</p>
+ <p><a href="https://www.tdbases.com.br/">TDBASES</a>, engenharia e arquitetura de dados. CNPJ 66.785.647/0001-84.</p>
+</div></footer>
+
+<script id="dados-demo" type="application/json">{{DADOS}}</script>
+<script>
+{{CORE_JS}}
+</script>
+<script>
+{{APP_JS}}
+</script>
+</body>
+</html>

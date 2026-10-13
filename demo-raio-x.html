@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Exemplo de relatório do Raio-X de Dados | TDBASES</title>
+<meta name="description" content="Exemplo, com dados fictícios, do relatório que a TDBASES entrega ao final do Raio-X de Dados: mapa das fontes, testes de qualidade priorizados, indicadores viáveis, primeira leitura de LGPD e escopo recomendado.">
+<link rel="canonical" href="https://www.tdbases.com.br/demo-raio-x.html">
+<meta property="og:type" content="article">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="TDBASES">
+<meta property="og:title" content="Exemplo de relatório do Raio-X de Dados | TDBASES">
+<meta property="og:description" content="Veja o que o Raio-X de Dados entrega em 3 a 5 dias úteis, com um escritório de advocacia fictício.">
+<meta property="og:url" content="https://www.tdbases.com.br/demo-raio-x.html">
+<meta name="theme-color" content="#0C1B2E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230C1B2E'/%3E%3Cellipse cx='16' cy='9' rx='9' ry='3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3Cpath d='M7 9v13c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3V9M7 15.5c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3C/svg%3E">
+<style>
+:root{--n9:#0C1B2E;--n8:#12263F;--n7:#1B3556;--n6:#2A4A70;--n1:#E4E9F0;--paper:#F4F6F9;--white:#FFFFFF;--ink:#1B2430;--muted:#4F5B6A;--line:#D3DAE3;--gold:#C2A064;--gold-d:#7A5C2C;--gold-l:#D9BF8C;--alert:#9B2C2C;--alert-bg:#FBEDEA;--ok:#1E5B3A;--ok-bg:#E8F3EC;
+--serif:"Spectral",Georgia,"Times New Roman",serif;--sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;--wrap:1240px;--band:40px}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:110px}
+body{margin:0;font-family:var(--sans);font-size:1rem;line-height:1.55;color:var(--ink);background:var(--paper);-webkit-font-smoothing:antialiased}
+a{color:var(--n7)}a:hover{color:var(--gold-d)}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.2;color:var(--n9);margin:0 0 .5em;letter-spacing:-.01em}
+h2{font-size:clamp(1.45rem,2.6vw,1.9rem)}
+h3{font-size:1.18rem;font-weight:600}
+p{margin:0 0 .9em;max-width:72ch}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 20px}
+.skip{position:absolute;left:-999px;top:0;background:var(--gold);color:var(--n9);padding:10px 14px;z-index:99}.skip:focus{left:12px;top:48px}
+.band{position:sticky;top:0;z-index:40;background:var(--gold);color:var(--n9);font-size:.88rem;font-weight:600;min-height:var(--band);display:flex;align-items:center}
+.band .wrap{display:flex;gap:12px;align-items:center;justify-content:space-between;width:100%;padding-top:6px;padding-bottom:6px}
+.band a{color:var(--n9)}
+.band .links{display:flex;gap:18px;flex:0 0 auto}
+.band .links a{white-space:nowrap}
+.b-short{display:none}
+.top{background:var(--n9);color:#C9D3DF}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:18px;padding-top:22px;padding-bottom:22px}
+.brand{display:inline-flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-family:var(--serif);font-weight:600;letter-spacing:.06em;font-size:1.2rem}
+.brand:hover{color:#fff}
+.office h1{color:#fff;font-size:clamp(1.4rem,3vw,2rem);margin:6px 0 2px}
+.office p{margin:0;color:#B7C3D1;font-size:.95rem}
+.tag{display:inline-block;border:1px solid var(--gold);color:var(--gold-l);font-size:.78rem;font-weight:600;padding:2px 8px;border-radius:3px;margin-left:8px;vertical-align:middle;font-family:var(--sans);letter-spacing:0}
+.btn{display:inline-block;font-family:var(--sans);font-weight:600;font-size:.95rem;text-decoration:none;padding:11px 18px;border-radius:3px;border:2px solid transparent;cursor:pointer;line-height:1.2;background:none}
+.btn-gold{background:var(--gold);color:var(--n9)}.btn-gold:hover{background:var(--gold-l);color:var(--n9)}
+.btn-line{border-color:#B9C3CF;color:var(--n9);background:#fff}.btn-line:hover{border-color:var(--n7);color:var(--n9)}
+.btn-sm{padding:7px 12px;font-size:.86rem}
+.filters{background:var(--white);border-bottom:1px solid var(--line)}
+.filters .wrap{display:flex;flex-wrap:wrap;gap:14px 18px;align-items:flex-end;padding-top:16px;padding-bottom:16px}
+.field{display:grid;gap:4px;min-width:180px;flex:1 1 180px;max-width:300px}
+.field label{font-size:.82rem;font-weight:600;color:var(--n9)}
+.field select{font:inherit;font-size:.95rem;padding:9px 10px;border:1px solid #9AA6B5;border-radius:3px;background:#fff;color:var(--ink);width:100%}
+.scope{flex:1 1 100%;margin:0;font-size:.86rem;color:var(--muted)}
+.tabs{position:sticky;top:var(--band);z-index:30;background:var(--n8);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.tabs .wrap{padding:0}
+.tablist{display:flex;overflow-x:auto;scrollbar-width:thin;padding:0 12px}
+.tablist button{flex:0 0 auto;background:none;border:0;color:#C9D3DF;font:inherit;font-size:.93rem;padding:14px 14px 12px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+.tablist button:hover{color:#fff}
+.tablist button[aria-selected="true"]{color:#fff;border-bottom-color:var(--gold);font-weight:600}
+.tablist button:focus-visible{outline-offset:-3px}
+main{padding:28px 0 56px}
+.panel[hidden]{display:none}
+.panel-head{margin-bottom:22px}
+.decisao{background:var(--white);border-left:3px solid var(--gold);padding:10px 16px;margin:0 0 6px;max-width:none;font-size:.97rem}
+.decisao strong{color:var(--n9)}
+.nota{font-size:.86rem;color:var(--muted);max-width:none}
+.grid{display:grid;gap:18px}
+.kpis{grid-template-columns:repeat(5,1fr)}
+.kpis.k4{grid-template-columns:repeat(4,1fr)}
+@media (max-width:1100px){.kpis,.kpis.k4{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.kpis,.kpis.k4{grid-template-columns:repeat(2,1fr)}}
+.card{background:var(--white);border:1px solid var(--line);border-radius:4px;padding:18px 18px 16px;min-width:0}
+.kpi .lab{font-size:.84rem;color:var(--muted);font-weight:600;display:block}
+.kpi .val{font-family:var(--serif);font-size:clamp(1.45rem,2.3vw,1.9rem);color:var(--n9);display:block;line-height:1.2;margin:6px 0 4px;font-variant-numeric:tabular-nums}
+.kpi .sub{font-size:.82rem;color:var(--muted);display:block}
+.kpi.risco .val{color:var(--alert)}
+.achados{grid-template-columns:repeat(3,1fr);margin-top:18px}
+@media (max-width:900px){.achados{grid-template-columns:1fr}}
+.achado{border-top:3px solid var(--n7)}
+.achado h3{font-size:1.05rem;margin-bottom:8px}
+.achado p{margin:0;font-size:.95rem}
+.achado .acao{display:block;margin-top:10px;font-size:.88rem;color:var(--gold-d);font-weight:600}
+.two{grid-template-columns:1fr 1fr}
+@media (max-width:900px){.two{grid-template-columns:1fr}}
+.sec{margin-top:26px}
+figure{margin:0}
+figcaption{font-size:.86rem;color:var(--muted);margin-top:8px}
+.chart{width:100%;min-height:120px}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--sans)}
+.chart text:not([fill]){fill:var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:.85rem;color:var(--ink);margin:4px 0 10px;padding:0;list-style:none}
+.legend li{display:flex;align-items:center;gap:6px}
+.legend svg{flex:0 0 auto}
+.tbl-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;margin:0 0 10px}
+.tbl-tools h3{margin:0}
+.table-wrap{overflow-x:auto;background:var(--white);border:1px solid var(--line);border-radius:4px}
+table{border-collapse:collapse;width:100%;font-size:.9rem;font-variant-numeric:tabular-nums}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:middle;white-space:nowrap}
+td.wrapcell,th.wrapcell{white-space:normal;min-width:200px}
+thead th{background:var(--n1);color:var(--n9);font-weight:600;font-size:.84rem;position:sticky;top:0}
+th.num,td.num{text-align:right}
+tbody tr:last-child td,tbody tr:last-child th{border-bottom:0}
+tbody th{font-weight:600;color:var(--n9)}
+tfoot td{font-weight:600;background:#F8F9FB;border-top:2px solid var(--line)}
+tr.sub td,tr.sub th{background:#F8F9FB;font-weight:600}
+tr.ind td:first-child,tr.ind th:first-child{padding-left:28px;font-weight:400;color:var(--ink)}
+th button.sort{all:unset;cursor:pointer;display:inline-flex;gap:4px;align-items:center}
+th button.sort:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+th button.sort .arr{font-size:.75rem;color:var(--muted);min-width:.8em}
+.barcell{display:flex;align-items:center;justify-content:flex-end;gap:8px}
+.barcell .track{width:64px;height:9px;background:#EDF0F4;position:relative;flex:0 0 auto}
+.barcell .track span{position:absolute;left:0;top:0;bottom:0;background:var(--n7)}
+.barcell .track span.alt{background:var(--gold-d)}
+.neg{color:var(--alert)}
+.pos{color:var(--ok)}
+.badge{display:inline-block;font-size:.76rem;font-weight:600;padding:2px 7px;border-radius:3px;border:1px solid currentColor}
+.badge.alert{color:var(--alert);background:var(--alert-bg)}
+.badge.ok{color:var(--ok);background:var(--ok-bg)}
+.badge.sens{color:var(--n7);background:#EEF2F7}
+.badge.warn{color:var(--gold-d);background:#FBF4E6}
+tr.alerta td,tr.alerta th{background:var(--alert-bg)}
+.fix1 tbody th,.fix1 thead th:first-child,.fix1 tfoot td:first-child{position:sticky;left:0;z-index:1}
+.fix1 thead th:first-child{z-index:2}
+.fix1 tbody th{background:var(--white)}
+.fix1 tr.sub th,.fix1 tfoot td:first-child{background:#F8F9FB}
+.fix1 tbody th,.fix1 thead th:first-child{box-shadow:1px 0 0 var(--line)}
+.more{margin-top:10px}
+.heat td.hc{text-align:center;font-weight:600;min-width:84px}
+.heat thead th.num{text-align:center}
+.heat td.hc small{display:block;font-weight:400;font-size:.76rem}
+.callout{background:var(--n9);color:#C9D3DF;border-radius:4px;padding:28px 28px 26px;margin-top:28px}
+.callout h2{color:#fff}
+.callout p{color:#C9D3DF}
+.callout .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.callout .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.callout .btn-line:hover{border-color:#fff;color:#fff}
+.deliv{grid-template-columns:repeat(3,1fr)}
+@media (max-width:900px){.deliv{grid-template-columns:1fr}}
+.deliv ul{margin:6px 0 0;padding-left:1.1em;font-size:.94rem}
+.deliv li{margin-bottom:4px}
+.foot{background:var(--n9);color:#93A3B6;font-size:.84rem;padding:28px 0}
+.foot p{max-width:none;margin:0 0 6px}
+.foot a{color:#C9D3DF}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (max-width:640px){
+ :root{--band:36px}
+ .b-long{display:none}.b-short{display:inline}
+ .band .links{display:none}
+ .top .wrap{padding-top:16px;padding-bottom:16px}
+ .field{max-width:none;min-width:140px}
+ th,td{padding:8px 9px}
+ .card{padding:14px}
+ .callout{padding:22px 18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{.band,.tabs,.filters,.btn{display:none}.panel[hidden]{display:block}}
+
+/* relatório do Raio-X */
+body{background:#E9EDF2}
+.doc{max-width:960px;margin:28px auto 56px;background:var(--white);border:1px solid var(--line);border-radius:4px;box-shadow:0 1px 0 rgba(12,27,46,.04)}
+.capa{background:var(--n9);color:#C9D3DF;padding:40px 48px 36px;border-radius:4px 4px 0 0}
+.capa .brand{margin-bottom:28px}
+.capa h1{color:#fff;font-size:clamp(2rem,4vw,2.8rem);margin:0 0 6px}
+.capa .sub{font-family:var(--serif);font-size:1.25rem;color:#E4E9F0;margin:0 0 26px}
+.ficha{display:grid;grid-template-columns:repeat(4,1fr);gap:16px 24px;margin:0;border-top:1px solid rgba(255,255,255,.14);padding-top:20px}
+.ficha div{min-width:0}
+.ficha dt{font-size:.8rem;color:#93A3B6;font-weight:600}
+.ficha dd{margin:2px 0 0;color:#fff;font-size:.95rem}
+@media (max-width:760px){.ficha{grid-template-columns:1fr 1fr}.capa{padding:28px 22px}}
+.acoes{display:flex;flex-wrap:wrap;gap:12px;padding:18px 48px;border-bottom:1px solid var(--line);background:#F8F9FB;align-items:center}
+.acoes p{margin:0;flex:1 1 300px;font-size:.88rem;color:var(--muted)}
+@media (max-width:760px){.acoes{padding:16px 22px}}
+.corpo{padding:8px 48px 40px}
+@media (max-width:760px){.corpo{padding:4px 22px 28px}}
+.corpo section{padding-top:30px}
+.corpo h2{font-size:1.6rem;display:flex;gap:12px;align-items:baseline;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:16px}
+.corpo h2 .n{font-family:var(--serif);color:var(--gold-d);font-size:1.3rem;min-width:1.4em}
+.corpo h3{font-size:1.1rem;margin-top:18px}
+.corpo p,.corpo li{font-size:1rem;line-height:1.62}
+.corpo ul,.corpo ol{padding-left:1.2em;margin:0 0 1em}
+.corpo li{margin-bottom:5px;max-width:72ch}
+.corpo .resumo{font-family:var(--serif);font-size:1.2rem;line-height:1.5;color:var(--n9);border-left:3px solid var(--gold);padding:4px 0 4px 18px;margin:0 0 20px;max-width:none}
+.achs{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:0 0 18px}
+@media (max-width:760px){.achs{grid-template-columns:1fr}}
+.ach{border:1px solid var(--line);border-top:3px solid var(--n7);border-radius:4px;padding:14px 16px}
+.ach.crit{border-top-color:var(--alert)}
+.ach h3{margin:0 0 6px;font-size:1.02rem}
+.ach p{margin:0;font-size:.95rem}
+.ach .sev{display:inline-block;margin-bottom:6px}
+.reco{background:var(--n9);color:#C9D3DF;border-radius:4px;padding:18px 20px}
+.reco p{margin:0;color:#E4E9F0}
+.reco strong{color:#fff}
+.mat{display:grid;grid-template-columns:1fr;gap:18px;margin-top:18px}
+.mat figure svg{max-width:720px;display:block;margin:0 auto}
+.svgscroll{overflow-x:auto}
+.dica-rolar{display:none;font-size:.84rem;color:var(--muted);margin:0 0 6px}
+@media (max-width:640px){.dica-rolar{display:block}}
+.svgscroll svg{min-width:600px}
+.prio{font-weight:600;white-space:nowrap}
+.semana{display:grid;grid-template-columns:110px 1fr;gap:4px 18px;border-top:1px solid var(--line);padding:12px 0}
+.semana:last-child{border-bottom:1px solid var(--line)}
+.semana .w{font-family:var(--serif);color:var(--gold-d);font-size:1.05rem}
+.semana p{margin:0}
+@media (max-width:600px){.semana{grid-template-columns:1fr}}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+@media (max-width:760px){.cols2{grid-template-columns:1fr}}
+.preco{border:1px dashed #9AA6B5;border-radius:4px;padding:14px 16px;background:#F8F9FB;margin-top:16px}
+.preco p{margin:0}
+.fim{background:var(--n9);color:#C9D3DF;border-radius:0 0 4px 4px;padding:28px 48px}
+.fim h2{color:#fff;font-size:1.5rem;border:0;margin:0 0 8px;padding:0}
+.fim p{color:#C9D3DF}
+.fim .actions{display:flex;flex-wrap:wrap;gap:12px}
+.fim .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+@media (max-width:760px){.fim{padding:24px 22px}}
+@media print{
+ body{background:#fff}
+ .band,.acoes,.fim .actions,.skip{display:none!important}
+ .doc{margin:0;border:0;box-shadow:none;max-width:none}
+ .capa,.reco,.fim{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .corpo section{break-inside:auto}
+ .table-wrap{overflow:visible;border:0}
+ thead th{position:static}
+ h2,h3{break-after:avoid}
+ tr,.ach,.semana{break-inside:avoid}
+}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#relatorio">Pular para o relatório</a>
+<div class="band" role="note"><div class="wrap"><span><span class="b-long">Exemplo de relatório com dados fictícios. O escritório e todos os números foram criados para demonstração.</span><span class="b-short">Exemplo com dados fictícios.</span></span><span class="links"><a href="https://www.tdbases.com.br/demos.html">Outras demonstrações</a><a href="https://www.tdbases.com.br/advocacia.html">Solução para advocacia</a></span></div></div>
+
+<main id="relatorio">
+<article class="doc">
+ <header class="capa">
+  <a class="brand" href="https://www.tdbases.com.br/" aria-label="TDBASES, ir para o site"><svg width="22" height="22" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg>TDBASES</a>
+  <h1>Raio-X de Dados</h1>
+  <p class="sub">RRodrigues e Associados <span class="tag">escritório fictício</span></p>
+  <dl class="ficha">
+   <div><dt>Período do diagnóstico</dt><dd>28/09 a 02/10/2026, 5 dias úteis</dd></div>
+   <div><dt>Equipe do escritório</dt><dd>14 advogados, 3 pessoas no administrativo</dd></div>
+   <div><dt>Base analisada</dt><dd>863 processos, 180 clientes, 24 meses</dd></div>
+   <div><dt>Versão</dt><dd>1.0, entregue em 02/10/2026</dd></div>
+  </dl>
+ </header>
+
+ <div class="acoes">
+  <p>Este é o formato do relatório que o seu escritório recebe ao final do Raio-X. Os números são fictícios.</p>
+  <button class="btn btn-line btn-sm" type="button" id="imprimir">Imprimir ou salvar em PDF</button>
+  <a class="btn btn-gold btn-sm" href="https://www.tdbases.com.br/demo-advocacia.html">Ver o painel após a implementação</a>
+ </div>
+
+ <div class="corpo">
+
+ <section aria-labelledby="s1">
+  <h2 id="s1"><span class="n">1</span>Resumo para os sócios</h2>
+  <p class="resumo">Os dados para responder às perguntas de gestão do escritório existem, mas estão divididos entre o sistema de gestão jurídica, o financeiro e duas planilhas paralelas. Hoje, nenhum relatório consegue dizer com segurança quanto cada cliente ou área dá de resultado, e parte dos prazos depende de uma planilha que só uma pessoa atualiza.</p>
+  <div class="achs">
+   <div class="ach crit"><span class="badge alert sev">Crítico</span><h3>Prazos fora do sistema</h3><p>58 prazos abertos existem só na planilha paralela, sem registro correspondente no sistema de gestão jurídica.</p></div>
+   <div class="ach"><span class="badge warn sev">Alto</span><h3>Êxito controlado em planilha</h3><p>64 contratos com honorário de êxito são acompanhados apenas em planilha. Esse valor não aparece no financeiro até ser recebido.</p></div>
+   <div class="ach"><span class="badge warn sev">Alto</span><h3>Horas sem destino</h3><p>4,6% das horas lançadas em 24 meses, cerca de 2.250 horas, não estão ligadas a processo ou cliente. Sem isso, a rentabilidade por cliente fica subestimada.</p></div>
+   <div class="ach"><span class="badge warn sev">Médio</span><h3>Cadastros incompletos</h3><p>71 processos sem área do direito e 23 pares de clientes duplicados. A correção é rápida e destrava os indicadores por área e por cliente.</p></div>
+  </div>
+  <div class="reco"><p><strong>Recomendação:</strong> seguir para a implementação em 5 semanas, com escopo fechado descrito na seção 7. A primeira semana inclui a correção dos cadastros com a equipe do escritório, porque os indicadores dependem dela.</p></div>
+ </section>
+
+ <section aria-labelledby="s2">
+  <h2 id="s2"><span class="n">2</span>O que foi analisado</h2>
+  <div class="cols2">
+   <div>
+    <h3>Conversas</h3>
+    <ul>
+     <li>Sócio-administrador: decisões que hoje são tomadas sem número</li>
+     <li>Controladoria jurídica: rotina de prazos e andamentos</li>
+     <li>Financeiro: faturamento, recebimento e honorários de êxito</li>
+     <li>Dois advogados: como as horas são lançadas na prática</li>
+    </ul>
+   </div>
+   <div>
+    <h3>Dados</h3>
+    <ul>
+     <li>Exportação completa do sistema de gestão jurídica</li>
+     <li>Lançamentos do financeiro dos últimos 24 meses</li>
+     <li>Planilha de prazos e planilha de honorários de êxito</li>
+     <li>Estrutura das pastas compartilhadas, sem abrir conteúdo de clientes</li>
+     <li>Amostra de números de processo na API pública do DataJud, do CNJ</li>
+    </ul>
+   </div>
+  </div>
+  <p>Foram executados 27 testes automatizados de qualidade sobre os dados exportados, com regras escritas para cada um. Nenhum dado de cliente saiu do ambiente combinado com o escritório.</p>
+ </section>
+
+ <section aria-labelledby="s3">
+  <h2 id="s3"><span class="n">3</span>Mapa das fontes</h2>
+  <p>Como a informação circula hoje até chegar a uma decisão. As setas tracejadas são cópias manuais.</p>
+  <figure class="card" style="margin:14px 0 18px">
+   <p class="dica-rolar">Deslize para o lado para ver o diagrama inteiro.</p><div class="svgscroll"><svg viewBox="0 0 860 330" width="100%" role="img" aria-label="Diagrama da situação atual: o sistema de gestão jurídica e o financeiro alimentam, por cópia manual, a planilha de prazos, a planilha de êxito e o relatório semanal dos sócios, que leva cerca de 6 horas por semana para ser montado. E-mail e pastas compartilhadas guardam documentos com dados pessoais fora do sistema.">
+    <defs><marker id="pa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7A5C2C"/></marker></defs>
+    <g font-family="IBM Plex Sans, system-ui, sans-serif">
+     <rect x="10" y="20" width="230" height="56" rx="3" fill="#fff" stroke="#9AA6B5" stroke-width="1.4"/><text x="24" y="44" font-size="14" font-weight="600" fill="#12263F">Sistema de gestão jurídica</text><text x="24" y="63" font-size="12" fill="#4F5B6A">processos, prazos, horas</text>
+     <rect x="10" y="98" width="230" height="56" rx="3" fill="#fff" stroke="#9AA6B5" stroke-width="1.4"/><text x="24" y="122" font-size="14" font-weight="600" fill="#12263F">Financeiro</text><text x="24" y="141" font-size="12" fill="#4F5B6A">faturamento e recebimentos</text>
+     <rect x="10" y="176" width="230" height="56" rx="3" fill="#fff" stroke="#9AA6B5" stroke-width="1.4"/><text x="24" y="200" font-size="14" font-weight="600" fill="#12263F">E-mail e pastas</text><text x="24" y="219" font-size="12" fill="#4F5B6A">laudos, contratos, documentos</text>
+     <rect x="10" y="254" width="230" height="56" rx="3" fill="#fff" stroke="#9AA6B5" stroke-width="1.4"/><text x="24" y="278" font-size="14" font-weight="600" fill="#12263F">Dados públicos (DataJud)</text><text x="24" y="297" font-size="12" fill="#4F5B6A">não utilizados hoje</text>
+     <rect x="330" y="40" width="220" height="56" rx="3" fill="#FBEDEA" stroke="#9B2C2C" stroke-width="1.4"/><text x="344" y="64" font-size="14" font-weight="600" fill="#12263F">Planilha de prazos</text><text x="344" y="83" font-size="12" fill="#4F5B6A">uma pessoa atualiza</text>
+     <rect x="330" y="140" width="220" height="56" rx="3" fill="#FBEDEA" stroke="#9B2C2C" stroke-width="1.4"/><text x="344" y="164" font-size="14" font-weight="600" fill="#12263F">Planilha de êxito</text><text x="344" y="183" font-size="12" fill="#4F5B6A">64 contratos só aqui</text>
+     <rect x="640" y="90" width="210" height="76" rx="3" fill="#12263F" stroke="#C2A064" stroke-width="1.4"/><text x="654" y="116" font-size="14" font-weight="600" fill="#fff">Relatório dos sócios</text><text x="654" y="136" font-size="12" fill="#C9D3DF">montado à mão toda semana</text><text x="654" y="154" font-size="12" fill="#C9D3DF">cerca de 6 horas</text>
+     <line x1="240" y1="48" x2="326" y2="66" stroke="#7A5C2C" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#pa)"/>
+     <line x1="240" y1="126" x2="326" y2="164" stroke="#7A5C2C" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#pa)"/>
+     <line x1="550" y1="68" x2="636" y2="112" stroke="#7A5C2C" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#pa)"/>
+     <line x1="550" y1="168" x2="636" y2="142" stroke="#7A5C2C" stroke-width="1.6" stroke-dasharray="6 4" marker-end="url(#pa)"/>
+     <path d="M240 30 C 420 -4, 600 6, 700 86" fill="none" stroke="#7A5C2C" stroke-width="1.2" stroke-dasharray="2 4" marker-end="url(#pa)"/>
+     <text x="330" y="246" font-size="12" fill="#4F5B6A">Tracejado: cópia manual entre fontes.</text>
+     <text x="330" y="264" font-size="12" fill="#4F5B6A">E-mail e pastas não alimentam relatórios,</text>
+     <text x="330" y="282" font-size="12" fill="#4F5B6A">mas guardam dados pessoais (seção 6).</text>
+    </g>
+   </svg></div>
+  </figure>
+  <div class="table-wrap"><table>
+   <caption class="sr">Inventário das fontes de dados</caption>
+   <thead><tr><th scope="col">Fonte</th><th scope="col" class="wrapcell">O que contém</th><th scope="col">Atualização</th><th scope="col" class="wrapcell">Extração viável</th><th scope="col">Situação</th></tr></thead>
+   <tbody>
+    <tr><th scope="row">Sistema de gestão jurídica</th><td class="wrapcell">863 processos, 304 prazos abertos, lançamentos de horas</td><td>Diária</td><td class="wrapcell">Exportação agendada; API disponível no plano atual</td><td><span class="badge ok">Boa base</span></td></tr>
+    <tr><th scope="row">Financeiro</th><td class="wrapcell">Faturamento, recebimentos e despesas desde 2021</td><td>Diária</td><td class="wrapcell">Exportação em planilha; acesso ao banco a confirmar</td><td><span class="badge ok">Boa base</span></td></tr>
+    <tr><th scope="row">Planilha de prazos</th><td class="wrapcell">Cópia dos prazos com observações; 58 sem par no sistema</td><td>Manual</td><td class="wrapcell">Leitura direta; deve ser substituída</td><td><span class="badge alert">Risco</span></td></tr>
+    <tr><th scope="row">Planilha de êxito</th><td class="wrapcell">64 contratos com percentual e expectativa de recebimento</td><td>Manual, irregular</td><td class="wrapcell">Leitura direta; migrar para cadastro estruturado</td><td><span class="badge alert">Risco</span></td></tr>
+    <tr><th scope="row">E-mail e pastas</th><td class="wrapcell">Documentos de clientes, incluindo laudos médicos</td><td>Contínua</td><td class="wrapcell">Só inventário de onde estão, sem extração</td><td><span class="badge warn">Atenção</span></td></tr>
+    <tr><th scope="row">DataJud (CNJ)</th><td class="wrapcell">Classe, assunto, órgão e movimentações públicas</td><td>Conforme o tribunal</td><td class="wrapcell">API pública; 87% dos números testados encontrados</td><td><span class="badge ok">Viável</span></td></tr>
+   </tbody>
+  </table></div>
+ </section>
+
+ <section aria-labelledby="s4">
+  <h2 id="s4"><span class="n">4</span>Qualidade dos dados</h2>
+  <p>Problemas encontrados, em ordem de prioridade. Prioridade 1: alto impacto e correção simples, entra na primeira semana da implementação.</p>
+  <div class="table-wrap"><table>
+   <caption class="sr">Testes de qualidade com problemas encontrados</caption>
+   <thead><tr><th scope="col" class="num">Nº</th><th scope="col" class="wrapcell">Problema</th><th scope="col">Registros afetados</th><th scope="col" class="wrapcell">O que impede</th><th scope="col">Esforço</th><th scope="col">Prioridade</th></tr></thead>
+   <tbody>
+    <tr><td class="num">1</td><td class="wrapcell">Prazos que existem só na planilha paralela</td><td>58 de 362 (16%)</td><td class="wrapcell">Controle confiável de prazos e o aging</td><td>Baixo</td><td class="prio neg">1</td></tr>
+    <tr><td class="num">2</td><td class="wrapcell">Processos sem área do direito</td><td>71 de 863 (8,2%)</td><td class="wrapcell">Êxito e rentabilidade por área</td><td>Baixo</td><td class="prio neg">1</td></tr>
+    <tr><td class="num">3</td><td class="wrapcell">Prazos abertos sem advogado responsável</td><td>37 de 304 (12%)</td><td class="wrapcell">Distribuição de carga e cobrança de prazos</td><td>Baixo</td><td class="prio neg">1</td></tr>
+    <tr><td class="num">4</td><td class="wrapcell">Custo-hora por nível não definido pelo escritório</td><td>Decisão pendente</td><td class="wrapcell">Rentabilidade por cliente e por área</td><td>Baixo</td><td class="prio neg">1</td></tr>
+    <tr><td class="num">5</td><td class="wrapcell">Horas lançadas sem processo ou cliente</td><td>2.250 h (4,6%)</td><td class="wrapcell">Rentabilidade por cliente completa</td><td>Médio</td><td class="prio">2</td></tr>
+    <tr><td class="num">6</td><td class="wrapcell">Clientes duplicados, mesmo CPF ou CNPJ em cadastros diferentes</td><td>23 pares</td><td class="wrapcell">Concentração de receita e histórico do cliente</td><td>Médio</td><td class="prio">2</td></tr>
+    <tr><td class="num">7</td><td class="wrapcell">Honorários de êxito controlados só em planilha</td><td>64 contratos</td><td class="wrapcell">Diferença entre competência e caixa</td><td>Médio</td><td class="prio">2</td></tr>
+    <tr><td class="num">8</td><td class="wrapcell">Número do processo fora do padrão do CNJ</td><td>112 de 863 (13%)</td><td class="wrapcell">Enriquecimento com o DataJud</td><td>Baixo</td><td class="prio">3</td></tr>
+    <tr><td class="num">9</td><td class="wrapcell">Resultado não informado em processos encerrados</td><td>87 de 461 (19%)</td><td class="wrapcell">Taxa de êxito confiável</td><td>Médio</td><td class="prio">3</td></tr>
+   </tbody>
+  </table></div>
+  <div class="mat">
+   <figure class="card">
+    <p class="dica-rolar">Deslize para o lado para ver o diagrama inteiro.</p><div class="svgscroll"><svg viewBox="0 0 600 380" width="100%" role="img" aria-label="Matriz de impacto e esforço dos 9 problemas. Alto impacto e baixo esforço, quadrante fazer primeiro: problemas 1 a 4, prazos fora do sistema, processos sem área, prazos sem responsável e custo-hora não definido. Alto impacto e esforço médio, quadrante planejar: problemas 5 a 7, horas sem destino, clientes duplicados e êxito em planilha. Impacto menor: problema 8, número do processo fora do padrão, com esforço baixo, e problema 9, resultado não informado, com esforço médio.">
+     <g font-family="IBM Plex Sans, system-ui, sans-serif">
+      <rect x="70" y="30" width="255" height="180" fill="#E8F3EC"/>
+      <rect x="325" y="30" width="255" height="180" fill="#F8F9FB"/>
+      <rect x="70" y="210" width="255" height="120" fill="#F8F9FB"/>
+      <rect x="325" y="210" width="255" height="120" fill="#FFFFFF"/>
+      <rect x="70" y="30" width="510" height="300" fill="none" stroke="#9AA6B5"/>
+      <line x1="325" y1="30" x2="325" y2="330" stroke="#9AA6B5" stroke-dasharray="4 3"/>
+      <line x1="70" y1="210" x2="580" y2="210" stroke="#9AA6B5" stroke-dasharray="4 3"/>
+      <text x="80" y="50" font-size="13" font-weight="600" fill="#1E5B3A">Fazer primeiro</text>
+      <text x="335" y="50" font-size="12" font-weight="600" fill="#4F5B6A">Planejar</text>
+      <text x="80" y="322" font-size="12" font-weight="600" fill="#4F5B6A">Ajustar no caminho</text>
+      <text x="335" y="322" font-size="12" font-weight="600" fill="#4F5B6A">Avaliar depois</text>
+      <text x="325" y="362" text-anchor="middle" font-size="12" fill="#1B2430">Esforço de correção</text>
+      <text x="20" y="180" font-size="12" fill="#1B2430" transform="rotate(-90 20 180)" text-anchor="middle">Impacto nos indicadores</text>
+      <text x="70" y="346" font-size="11" fill="#4F5B6A">baixo</text><text x="580" y="346" text-anchor="end" font-size="11" fill="#4F5B6A">alto</text>
+      <g font-size="12" font-weight="600" text-anchor="middle">
+       <circle cx="190" cy="68" r="13" fill="#9B2C2C"/><text x="190" y="72" fill="#fff">1</text>
+       <circle cx="112" cy="120" r="13" fill="#1B3556"/><text x="112" y="124" fill="#fff">2</text>
+       <circle cx="140" cy="90" r="13" fill="#1B3556"/><text x="140" y="94" fill="#fff">3</text>
+       <circle cx="100" cy="160" r="13" fill="#1B3556"/><text x="100" y="164" fill="#fff">4</text>
+       <circle cx="346" cy="135" r="13" fill="#5B7FA6"/><text x="346" y="139" fill="#fff">5</text>
+       <circle cx="372" cy="180" r="13" fill="#5B7FA6"/><text x="372" y="184" fill="#fff">6</text>
+       <circle cx="389" cy="105" r="13" fill="#5B7FA6"/><text x="389" y="109" fill="#fff">7</text>
+       <circle cx="176" cy="240" r="13" fill="#9AA6B5"/><text x="176" y="244" fill="#12263F">8</text>
+       <circle cx="410" cy="225" r="13" fill="#9AA6B5"/><text x="410" y="229" fill="#12263F">9</text>
+      </g>
+     </g>
+    </svg></div>
+    <figcaption>Os números correspondem à tabela acima. O problema 1, em vermelho, também é o de maior risco operacional.</figcaption>
+   </figure>
+   <div>
+    <h3 style="margin-top:0">Como ler</h3>
+    <p>Impacto mede quantos indicadores ficam errados ou impossíveis por causa do problema. Esforço considera quem corrige: a maior parte dos itens de prioridade 1 é resolvida pela própria equipe do escritório, com uma lista gerada pela TDBASES, em poucas horas.</p>
+    <p>O problema 4 não é um erro de dado, é uma decisão: sem um custo-hora por nível, nenhum painel consegue calcular rentabilidade. A seção 8 traz uma proposta de método para essa definição.</p>
+   </div>
+  </div>
+ </section>
+
+ <section aria-labelledby="s5">
+  <h2 id="s5"><span class="n">5</span>Indicadores viáveis</h2>
+  <div class="table-wrap"><table>
+   <caption class="sr">Viabilidade dos indicadores pedidos pelos sócios</caption>
+   <thead><tr><th scope="col">Indicador</th><th scope="col">Situação</th><th scope="col" class="wrapcell">Condição</th></tr></thead>
+   <tbody>
+    <tr><th scope="row">Aging de prazos</th><td><span class="badge warn">Após ajuste</span></td><td class="wrapcell">Problemas 1 e 3 corrigidos</td></tr>
+    <tr><th scope="row">Carteira por fase</th><td><span class="badge ok">Viável já</span></td><td class="wrapcell">Fases bem preenchidas no sistema</td></tr>
+    <tr><th scope="row">Produtividade por advogado</th><td><span class="badge ok">Viável já</span></td><td class="wrapcell">Horas e responsáveis disponíveis; melhora com o problema 5</td></tr>
+    <tr><th scope="row">Taxa de êxito por área</th><td><span class="badge warn">Após ajuste</span></td><td class="wrapcell">Problemas 2 e 9; áreas com poucos encerrados terão intervalo de confiança</td></tr>
+    <tr><th scope="row">Rentabilidade por cliente</th><td><span class="badge alert">Depende de decisão</span></td><td class="wrapcell">Custo-hora por nível definido (problema 4) e duplicidades resolvidas</td></tr>
+    <tr><th scope="row">Rentabilidade por área</th><td><span class="badge alert">Depende de decisão</span></td><td class="wrapcell">Problemas 2 e 4</td></tr>
+    <tr><th scope="row">Concentração da receita</th><td><span class="badge warn">Após ajuste</span></td><td class="wrapcell">Problema 6</td></tr>
+    <tr><th scope="row">Competência e caixa do êxito</th><td><span class="badge warn">Após ajuste</span></td><td class="wrapcell">Migração da planilha de êxito (problema 7)</td></tr>
+    <tr><th scope="row">Inventário de dados pessoais</th><td><span class="badge ok">Viável já</span></td><td class="wrapcell">Levantamento técnico iniciado neste diagnóstico</td></tr>
+   </tbody>
+  </table></div>
+ </section>
+
+ <section aria-labelledby="s6">
+  <h2 id="s6"><span class="n">6</span>Primeira leitura de LGPD</h2>
+  <p>Observações técnicas feitas durante o diagnóstico. Não substituem a análise jurídica do escritório nem a do encarregado.</p>
+  <ul>
+   <li>Laudos médicos de reclamantes circulam por e-mail e ficam em pastas compartilhadas com acesso de toda a equipe.</li>
+   <li>A planilha de prazos guarda telefone e endereço de testemunhas, sem base legal registrada e sem prazo de retenção.</li>
+   <li>Não há prazo de retenção definido para documentos de processos encerrados há mais de cinco anos.</li>
+   <li>O cadastro de interessados do atendimento inicial fica em agenda pessoal, fora dos sistemas do escritório.</li>
+  </ul>
+ </section>
+
+ <section aria-labelledby="s7">
+  <h2 id="s7"><span class="n">7</span>Escopo recomendado</h2>
+  <p>Implementação do Data Warehouse Jurídico e do Painel de Gestão em 5 semanas.</p>
+  <div class="semana"><span class="w">Semana 1</span><p>Extração automatizada do sistema jurídico e do financeiro. Lista de correção dos problemas de prioridade 1 entregue à equipe, com acompanhamento.</p></div>
+  <div class="semana"><span class="w">Semana 2</span><p>Migração da planilha de êxito para cadastro estruturado. Unificação de clientes duplicados. Definição do custo-hora com os sócios.</p></div>
+  <div class="semana"><span class="w">Semana 3</span><p>Modelagem dimensional documentada. Integração com o DataJud para os números de processo válidos.</p></div>
+  <div class="semana"><span class="w">Semana 4</span><p>Painel com prazos, produtividade, êxito, rentabilidade e concentração. Validação dos números com os sócios.</p></div>
+  <div class="semana"><span class="w">Semana 5</span><p>Inventário de dados pessoais, dicionário de dados, treinamento da equipe e ajustes finais.</p></div>
+  <div class="cols2" style="margin-top:18px">
+   <div><h3>Premissas</h3><ul><li>Acesso à exportação ou à API do sistema jurídico</li><li>Uma pessoa do escritório como ponto focal, cerca de 4 horas por semana</li><li>Sócios disponíveis para a validação da semana 4</li></ul></div>
+   <div><h3>Fora do escopo</h3><ul><li>Troca do sistema de gestão jurídica</li><li>Parecer jurídico sobre LGPD</li><li>Correção de cadastros além da lista entregue</li></ul></div>
+  </div>
+  <div class="preco"><p><strong>Orçamento fechado:</strong> enviado em documento separado, com valor da implementação e da sustentação mensal. Neste exemplo, o valor não é exibido.</p></div>
+ </section>
+
+ <section aria-labelledby="s8">
+  <h2 id="s8"><span class="n">8</span>Decisões que dependem do escritório</h2>
+  <ol>
+   <li>Aprovar o escopo e o cronograma da seção 7.</li>
+   <li>Nomear o ponto focal da implementação.</li>
+   <li>Definir o custo-hora por nível. Proposta de método: remuneração com encargos dividida pelas horas disponíveis, mais rateio das despesas fixas.</li>
+   <li>Decidir o destino da planilha de prazos após a migração.</li>
+  </ol>
+ </section>
+
+ </div>
+
+ <footer class="fim">
+  <h2>O próximo Raio-X pode ser o do seu negócio</h2>
+  <p>De 3 a 5 dias úteis, com relatório no formato deste exemplo e orçamento fechado para a implementação. A TDBASES também faz o Raio-X para contabilidade, varejo e food service.</p>
+  <div class="actions"><a class="btn btn-gold" href="https://www.tdbases.com.br/contato.html">Agendar Raio-X de Dados</a><a class="btn btn-line" href="https://www.tdbases.com.br/demos.html">Ver outras demonstrações</a></div>
+ </footer>
+</article>
+<p class="nota" style="text-align:center;margin:0 auto 40px;max-width:960px;padding:0 20px">Exemplo com dados fictícios. RRodrigues e Associados não existe; volumes compatíveis com o <a href="https://www.tdbases.com.br/demo-advocacia.html">painel demonstrativo de advocacia</a>. TDBASES, CNPJ 66.785.647/0001-84.</p>
+</main>
+<script>
+document.getElementById("imprimir").addEventListener("click",function(){window.print();});
+</script>
+</body>
+</html>
