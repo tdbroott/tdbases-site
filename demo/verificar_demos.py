@@ -241,7 +241,9 @@ with sync_playwright() as pw:
                     if not (RAIZ / alvo).exists():
                         links.append((n, href))
                 continue
-            if not (RAIZ / href).exists():
+            if href.startswith("/_vercel/"):
+                continue  # rota criada pelo Vercel Web Analytics no deploy
+            if not (RAIZ / href.lstrip("/")).exists():
                 links.append((n, href))
     ok(not links, "links internos e imagens apontam para arquivos existentes" + (f": {links[:4]}" if links else ""))
     for w in (375, 1280):
