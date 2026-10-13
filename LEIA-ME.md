@@ -1,24 +1,48 @@
-# Site TDBASES (tdbases.com.br)
+# Site TDBASES (www.tdbases.com.br)
 
-Site estático, sem dependência de servidor de aplicação. Cada página é um HTML autocontido (CSS embutido), o que permite publicar em qualquer hospedagem estática.
+Site estático publicado no Vercel a partir da branch main. Cada página é um HTML autocontido, com CSS embutido. A única parte executada no servidor é a função do formulário de contato.
 
 ## Estrutura
 
-index.html, advocacia.html, contabilidade.html, varejo-food-service.html, sobre.html, contato.html, sitemap.xml, robots.txt.
+- Páginas institucionais: index.html, advocacia.html, contabilidade.html, varejo-food-service.html, sobre.html, contato.html, demos.html, privacidade.html e 404.html.
+- api/contato.js: função serverless que recebe o formulário de contato.
+- package.json: única dependência, o nodemailer, usado pela função.
+- vercel.json: cabeçalhos de segurança e cache das imagens.
+- img/: miniaturas das demonstrações e a imagem de compartilhamento (og-tdbases.png).
+- sitemap.xml e robots.txt, com URLs em www.tdbases.com.br, que é o endereço canônico.
+- demo-*.html e demo/: demonstrações, descritas abaixo.
 
-## Publicação
-
-Opções equivalentes para site estático: Cloudflare Pages, Netlify, GitHub Pages ou a hospedagem compartilhada do registro do domínio. Em qualquer uma, aponte o domínio tdbases.com.br (registro no Registro.br) para o serviço escolhido e ative HTTPS.
+Os HTMLs da raiz são a fonte de verdade. O arquivo _build.py está defasado (usa outro e-mail e caminhos de outra máquina) e não deve ser executado: ele sobrescreveria as páginas com uma versão antiga.
 
 ## Formulário de contato
 
-O formulário não depende de backend: monta a mensagem e abre o WhatsApp (+55 61 99135-8553) ou o cliente de e-mail do visitante. Trade-off: não há registro automático do lead, e parte dos visitantes abandona na troca de aplicativo. Para captura com histórico, substituir o handler de submit por um POST para Formspree, Netlify Forms ou uma função serverless que grave numa planilha ou banco, mantendo o aviso de privacidade.
+contato.html envia os dados por fetch para /api/contato. A função valida os campos, descarta envios de robôs pelo campo isca e entrega a mensagem por SMTP ao e-mail corporativo, sem gravar em banco de dados. Se o envio falhar, a página mostra links com a mensagem já preenchida para WhatsApp e e-mail, e o botão "Prefiro enviar pelo WhatsApp" continua disponível o tempo todo.
 
-## Pendências antes de publicar
+Variáveis de ambiente, em Vercel, Settings, Environment Variables:
 
-1. Avaliar a hospedagem local das fontes (Spectral e IBM Plex Sans) em vez do Google Fonts, por desempenho e coerência com o discurso de LGPD.
+- SMTP_HOST: servidor SMTP do e-mail corporativo.
+- SMTP_USER: usuário da caixa que envia.
+- SMTP_PASS: senha ou senha de aplicativo dessa caixa.
+- MAIL_TO: endereço que recebe os contatos (contato@tdbases.com.br).
+- SMTP_PORT: opcional, padrão 465 (SSL). Use 587 se o provedor exigir STARTTLS.
+
+Sem essas variáveis a função responde erro 500 e a página oferece WhatsApp e e-mail.
+
+Respostas da função: 405 para método diferente de POST, 403 para origem não permitida, 400 para dados inválidos, 500 para configuração ausente, 502 para falha no SMTP e 200 para sucesso. A versão do aviso de privacidade aceito é registrada no texto do e-mail; ao mudar a política, atualize a data no topo de privacidade.html e a versão em api/contato.js.
+
+## Analytics
+
+Vercel Web Analytics, só visualizações de página, sem eventos personalizados. O snippet fica antes de </head> nas páginas institucionais e não é usado nas demonstrações. Ele só funciona depois de habilitar o Analytics no painel do Vercel; localmente, /_vercel/insights/script.js responde 404, o que é esperado.
+
+## Privacidade
+
+privacidade.html descreve dados, finalidades, bases legais, prazos (contatos sem contratação são guardados por até 6 meses após o último contato), operadores (Vercel, Zoho e WhatsApp) e direitos do titular. O resumo da página de contato remete a ela.
+
+## Pendências
+
+1. Hospedar as fontes (Spectral e IBM Plex Sans) no próprio domínio, em vez do Google Fonts, por desempenho e para retirar o Google da lista de terceiros.
 2. Cadastrar o site no Google Search Console e enviar o sitemap.xml.
-3. Criar e-mail no domínio (contato@tdbases.com.br) e trocar o endereço atual no build.
+3. Revisão jurídica do texto da política de privacidade.
 
 ## Demonstrações
 
