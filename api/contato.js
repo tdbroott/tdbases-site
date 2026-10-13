@@ -8,6 +8,28 @@ const ORIGENS = [
   'http://localhost:3000'
 ];
 
+// Deploys de preview do Vercel usam outro endereço; aceita apenas o do próprio deploy.
+function origemPermitida(origem) {
+  if (ORIGENS.includes(origem)) return true;
+  const proprios = [process.env.VERCEL_URL, process.env.VERCEL_BRANCH_URL]
+    .filter(Boolean)
+    .map(function (h) { return 'https://' + h; });
+  return proprios.includes(origem);
+}
+
+function corpoDaRequisicao(req) {
+  if (req.body && typeof req.body === 'object') return req.body;
+  if (typeof req.body === 'string') {
+    try {
+      const j = JSON.parse(req.body);
+      return j && typeof j === 'object' ? j : {};
+    } catch (e) {
+      return {};
+    }
+  }
+  return {};
+}
+
 const SEGMENTOS = {
   advocacia: 'Escritório de advocacia',
   contabilidade: 'Contabilidade',
@@ -40,11 +62,11 @@ module.exports = async function handler(req, res) {
   }
 
   const origem = req.headers.origin;
-  if (origem && !ORIGENS.includes(origem)) {
+  if (origem && !origemPermitida(origem)) {
     return res.status(403).json({ ok: false, erro: 'origem' });
   }
 
-  const b = req.body && typeof req.body === 'object' ? req.body : {};
+  const b = corpoDaRequisicao(req);
 
   // Campo isca: robôs preenchem, pessoas não veem. Responde como sucesso para não dar pista.
   if (limpar(b.website, 200)) {

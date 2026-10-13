@@ -362,7 +362,10 @@ f.addEventListener('submit',function(ev){
    f.reset();
   }else{
    st.className='status err';
-   st.innerHTML='Não foi possível enviar agora. Seus dados continuam no formulário: tente de novo, use o botão do WhatsApp ou escreva para <a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a>.';
+   st.textContent='Não foi possível enviar agora. Seus dados continuam no formulário. Tente de novo, ';
+   var lw=document.createElement('a');lw.href='https://wa.me/5561991358553?text='+encodeURIComponent(textoWhatsApp(d));lw.target='_blank';lw.rel='noopener';lw.textContent='envie esta mesma mensagem pelo WhatsApp';
+   var lm=document.createElement('a');lm.href='mailto:contato@tdbases.com.br?subject='+encodeURIComponent('Raio-X de Dados: '+d.empresa)+'&body='+encodeURIComponent(textoWhatsApp(d));lm.textContent='por e-mail';
+   st.appendChild(lw);st.appendChild(document.createTextNode(' ou '));st.appendChild(lm);st.appendChild(document.createTextNode('.'));
   }
  });
 });
