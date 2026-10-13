@@ -1,0 +1,10 @@
+{
+  "name": "tdbases-site",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Site institucional da TDBASES. Site estático com uma função serverless para o formulário de contato.",
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

@@ -13,6 +13,8 @@
 <meta property="og:description" content="Agende o Raio-X de Dados da TDBASES: diagnóstico de 3 a 5 dias úteis com relatório priorizado e orçamento fechado.">
 <meta property="og:url" content="https://tdbases.com.br/contato.html">
 <meta name="theme-color" content="#0C1B2E">
+<script>window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)}</script>
+<script defer data-domain="tdbases.com.br" src="https://plausible.io/js/script.tagged-events.js"></script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%230C1B2E'/%3E%3Cellipse cx='16' cy='9' rx='9' ry='3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3Cpath d='M7 9v13c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3V9M7 15.5c0 1.8 4 3.3 9 3.3s9-1.5 9-3.3' fill='none' stroke='%23C2A064' stroke-width='2'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -250,7 +252,7 @@ form.lead{display:grid;gap:18px}
 <header class="site-head"><div class="wrap">
 <a class="brand" href="index.html" aria-label="TDBASES, página inicial"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Varejo e food service</a><a href="demos.html">Demonstrações</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm" href="contato.html" aria-current="page">Agendar Raio-X de Dados</a></nav>
+<nav class="nav" id="nav" aria-label="Principal"><a href="index.html">Início</a><a href="advocacia.html">Advocacia</a><a href="contabilidade.html">Contabilidade</a><a href="varejo-food-service.html">Comércio</a><a href="demos.html">Demonstrações</a><a href="sobre.html">Sobre</a><a class="btn btn-gold btn-sm plausible-event-name=CTA+Raio-X" href="contato.html" aria-current="page">Agendar Raio-X de Dados</a></nav>
 </div></header>
 <main id="conteudo">
 
@@ -279,10 +281,11 @@ form.lead{display:grid;gap:18px}
 </select></div>
 </div>
 <div class="field"><label for="dor">O que mais incomoda hoje nos seus dados? <span class="hint">Opcional</span></label><textarea id="dor" name="dor" placeholder="Por exemplo: não sei qual área do escritório dá lucro, ou o relatório de fechamento é feito à mão."></textarea></div>
-<label class="consent"><input type="checkbox" id="aceite" required><span>Concordo que a TDBASES use estes dados apenas para responder a este contato, conforme o aviso de privacidade abaixo.</span></label>
+<div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden"><label>Não preencha este campo <input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+<label class="consent"><input type="checkbox" id="aceite" required><span>Concordo que a TDBASES use estes dados apenas para responder a este contato, conforme a <a href="privacidade.html" target="_blank" rel="noopener">política de privacidade</a>.</span></label>
 <div class="form-actions">
-<button class="btn btn-gold" type="submit">Enviar pelo WhatsApp</button>
-<button class="btn btn-navy" type="button" id="via-email">Enviar por e-mail</button>
+<button class="btn btn-gold" type="submit" id="enviar">Enviar</button>
+<button class="btn btn-navy" type="button" id="via-whatsapp">Prefiro enviar pelo WhatsApp</button>
 </div>
 <p class="status" id="status" role="status" aria-live="polite"></p>
 </form>
@@ -296,16 +299,16 @@ form.lead{display:grid;gap:18px}
 </ol>
 <h3>Prefere conversar antes?</h3>
 <p>Escolha um horário para falarmos sobre o Raio-X de Dados. Reunião de 60 minutos por videochamada.</p>
-<a class="btn btn-gold" href="https://calendar.zoho.com/eventreqForm/08011246b7d4f563a2036cb7d23b8ae30000103dce60bd811c685dd66e5b1ce4b058540eb36d9543fd6d03151d2e8505579c45461e55b687b1f9d9882cf02c09964bb6184ee65450549c?theme=0&l=en&tz=America%2FAraguaina" target="_blank" rel="noopener">Escolher horário</a>
-<p class="fine" style="margin-top:14px">Quer ver o que o Raio-X entrega? <a href="demo-raio-x.html">Exemplo de relatório</a>.</p>
+<a class="btn btn-gold plausible-event-name=Agenda+Zoho" href="https://calendar.zoho.com/eventreqForm/08011246b7d4f563a2036cb7d23b8ae30000103dce60bd811c685dd66e5b1ce4b058540eb36d9543fd6d03151d2e8505579c45461e55b687b1f9d9882cf02c09964bb6184ee65450549c?theme=0&l=en&tz=America%2FAraguaina" target="_blank" rel="noopener">Escolher horário</a>
+<p class="fine" style="margin-top:14px">Quer ver o que o Raio-X entrega? <a class="plausible-event-name=Exemplo+Raio-X" href="demo-raio-x.html">Exemplo de relatório</a>.</p>
 </aside>
 </div></section>
 
 <section class="bg-paper" id="privacidade"><div class="wrap">
 <div class="head-block"><h2>Aviso de privacidade</h2></div>
-<p>Os dados informados neste formulário, como nome, empresa, contato e descrição da necessidade, são usados exclusivamente para responder à sua solicitação e preparar a proposta do Raio-X de Dados. A base legal é o procedimento preliminar relacionado a contrato, a pedido do titular, prevista no artigo 7º, inciso V, da LGPD.</p>
-<p>Os dados não são vendidos nem compartilhados com terceiros para fins de marketing. Ao enviar pelo WhatsApp ou por e-mail, a mensagem trafega pelos serviços desses provedores. Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento pelo e-mail <a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a>.</p>
-<p class="fine">Controlador: TDBASES CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA, CNPJ 66.785.647/0001-84.</p>
+<p>Os dados informados neste formulário, como nome, empresa, contato e descrição da necessidade, são usados exclusivamente para responder à sua solicitação e preparar a proposta do Raio-X de Dados. A base legal é o procedimento preliminar relacionado a contrato, a pedido do titular, previsto no artigo 7º, inciso V, da LGPD.</p>
+<p>Ao enviar pelo formulário, a mensagem é entregue ao e-mail corporativo da TDBASES, sem ser gravada em banco de dados no site. Os dados não são vendidos nem compartilhados com terceiros para fins de marketing. Se preferir, use o botão do WhatsApp ou escreva direto para <a class="plausible-event-name=Email" href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a>, e a mensagem trafega pelos serviços desses provedores. Você pode pedir acesso, correção ou exclusão dos seus dados a qualquer momento por esse e-mail.</p>
+<p class="fine">Controlador: TDBASES CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA, CNPJ 66.785.647/0001-84. Detalhes completos na <a href="privacidade.html">política de privacidade</a>.</p>
 </div></section>
 
 </main>
@@ -313,31 +316,59 @@ form.lead{display:grid;gap:18px}
 <div class="foot-grid">
 <div><a class="brand" href="index.html"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><ellipse cx="15" cy="7" rx="11" ry="4" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 7v16c0 2.2 4.9 4 11 4s11-1.8 11-4V7" fill="none" stroke="#C2A064" stroke-width="2"/><path d="M4 15c0 2.2 4.9 4 11 4s11-1.8 11-4" fill="none" stroke="#C2A064" stroke-width="2"/></svg><span class="brand-name">TDBASES</span></a>
 <p style="margin-top:16px">Engenharia e arquitetura de dados para pequenas e médias empresas, com o rigor de quem construiu dados para instituições que não podem errar.</p></div>
-<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Varejo, bares e restaurantes</a></li><li><a href="contato.html">Raio-X de Dados</a></li><li><a href="demos.html">Demonstrações</a></li></ul></div>
-<div><h4>Contato</h4><ul><li><a href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a></li><li><a href="https://wa.me/5561991358553" rel="noopener">WhatsApp +55 61 99135-8553</a></li><li><a href="sobre.html">Sobre a TDBASES</a></li></ul></div>
+<div><h4>Soluções</h4><ul><li><a href="advocacia.html">Escritórios de advocacia</a></li><li><a href="contabilidade.html">Contabilidade</a></li><li><a href="varejo-food-service.html">Comércio</a></li><li><a class="plausible-event-name=CTA+Raio-X" href="contato.html">Raio-X de Dados</a></li><li><a href="demos.html">Demonstrações</a></li></ul></div>
+<div><h4>Contato</h4><ul><li><a class="plausible-event-name=Email" href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a></li><li><a class="plausible-event-name=WhatsApp" href="https://wa.me/5561991358553" rel="noopener">WhatsApp +55 61 99135-8553</a></li><li><a href="sobre.html">Sobre a TDBASES</a></li><li><a href="privacidade.html">Política de privacidade</a></li></ul></div>
 </div>
 <div class="legal">
 <p>TDBASES  CONSULTORIA EM TECNOLOGIA DA INFORMAÇÃO LTDA. CNPJ 66.785.647/0001-84.</p>
-<p>Astrea, EasyJur, Projuris, Legal One, SAJ, iFood e Rappi são marcas de seus respectivos titulares, citadas apenas para indicar sistemas com os quais a TDBASES sabe trabalhar. Não há parceria, afiliação ou endosso dessas empresas.</p>
+<p>Nomes de sistemas de terceiros eventualmente citados neste site são marcas de seus respectivos titulares, usados apenas como referência técnica. Não há parceria, afiliação ou endosso dessas empresas.</p>
 </div></div></footer>
 <script>
 (function(){var b=document.querySelector('.nav-toggle'),n=document.getElementById('nav');if(!b)return;b.addEventListener('click',function(){var o=n.classList.toggle('open');b.setAttribute('aria-expanded',o?'true':'false');});})();
 </script>
 <script>
 (function(){
-var f=document.getElementById('lead'),st=document.getElementById('status');
+var f=document.getElementById('lead'),st=document.getElementById('status'),bt=document.getElementById('enviar'),wa=document.getElementById('via-whatsapp');
 try{var p=new URLSearchParams(location.search).get('segmento');if(p){var s=document.getElementById('segmento');for(var i=0;i<s.options.length;i++){if(s.options[i].value===p){s.value=p;}}}}catch(e){}
-function msg(){
+function track(n){try{if(window.plausible){window.plausible(n);}}catch(e){}}
+function dados(){
  var n=f.nome.value.trim(),e=f.empresa.value.trim(),c=f.contato.value.trim(),sg=f.segmento,d=f.dor.value.trim();
  var miss=[];if(!n)miss.push('seu nome');if(!e)miss.push('a empresa');if(!c)miss.push('WhatsApp ou e-mail');if(!sg.value)miss.push('o tipo de negócio');
  if(miss.length){st.className='status err';st.textContent='Preencha '+miss.join(', ')+' para continuar.';return null;}
- if(!document.getElementById('aceite').checked){st.className='status err';st.textContent='Marque a concordância com o aviso de privacidade para enviar.';return null;}
- var t='Olá, quero agendar um Raio-X de Dados.\n\nNome: '+n+'\nEmpresa: '+e+'\nContato: '+c+'\nTipo de negócio: '+sg.options[sg.selectedIndex].text;
- if(d)t+='\nO que mais incomoda: '+d;
+ if(!document.getElementById('aceite').checked){st.className='status err';st.textContent='Marque a concordância com a política de privacidade para enviar.';return null;}
+ return {nome:n,empresa:e,contato:c,segmento:sg.value,segmentoTexto:sg.options[sg.selectedIndex].text,dor:d,consent:true,website:f.website.value};
+}
+function textoWhatsApp(d){
+ var t='Olá, quero agendar um Raio-X de Dados.\n\nNome: '+d.nome+'\nEmpresa: '+d.empresa+'\nContato: '+d.contato+'\nTipo de negócio: '+d.segmentoTexto;
+ if(d.dor)t+='\nO que mais incomoda: '+d.dor;
  return t;
 }
-f.addEventListener('submit',function(ev){ev.preventDefault();var t=msg();if(!t)return;st.className='status ok';st.textContent='Abrindo o WhatsApp com a sua mensagem pronta. É só enviar.';window.open('https://wa.me/5561991358553?text='+encodeURIComponent(t),'_blank','noopener');});
-document.getElementById('via-email').addEventListener('click',function(){var t=msg();if(!t)return;st.className='status ok';st.textContent='Abrindo o seu aplicativo de e-mail com a mensagem pronta.';location.href='mailto:contato@tdbases.com.br?subject='+encodeURIComponent('Raio-X de Dados: '+f.empresa.value.trim())+'&body='+encodeURIComponent(t);});
+f.addEventListener('submit',function(ev){
+ ev.preventDefault();
+ var d=dados();if(!d)return;
+ bt.disabled=true;st.className='status';st.textContent='Enviando...';
+ var corpo={nome:d.nome,empresa:d.empresa,contato:d.contato,segmento:d.segmento,dor:d.dor,consent:true,website:d.website};
+ fetch('/api/contato',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(corpo)})
+ .then(function(r){return r.json().catch(function(){return {};}).then(function(j){return r.ok&&j&&j.ok===true;});})
+ .catch(function(){return false;})
+ .then(function(ok){
+  bt.disabled=false;
+  if(ok){
+   track('Formulario enviado');
+   st.className='status ok';st.textContent='Recebemos a sua mensagem. Entraremos em contato pelo canal que você informou.';
+   f.reset();
+  }else{
+   st.className='status err';
+   st.innerHTML='Não foi possível enviar agora. Seus dados continuam no formulário: tente de novo, use o botão do WhatsApp ou escreva para <a class="plausible-event-name=Email" href="mailto:contato@tdbases.com.br">contato@tdbases.com.br</a>.';
+  }
+ });
+});
+wa.addEventListener('click',function(){
+ var d=dados();if(!d)return;
+ track('WhatsApp formulario');
+ st.className='status ok';st.textContent='Abrindo o WhatsApp com a sua mensagem pronta. É só enviar.';
+ window.open('https://wa.me/5561991358553?text='+encodeURIComponent(textoWhatsApp(d)),'_blank','noopener');
+});
 })();
 </script>
 </body>
